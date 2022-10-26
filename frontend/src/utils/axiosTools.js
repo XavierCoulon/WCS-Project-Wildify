@@ -34,18 +34,6 @@ export const uploadTrack = async (selectedFile) => {
 
 // Endpoints related to albums
 
-export const getAllAlbums = async () => {
-  await axiosInstance.get("/albums");
-};
-
-export const getAlbum = async (albumID) => {
-  await axiosInstance.get(`songs/${albumID}`);
-};
-
-export const deleteAlbum = async (albumID) => {
-  await axiosInstance.delete(`songs/${albumID}`);
-};
-
 export const uploadPicture = async (selectedPicture, albumId) => {
   const formData = new FormData();
   formData.append("file", selectedPicture);
@@ -76,14 +64,20 @@ export const deletePlaylist = async (playlistID) => {
 
 // Endpoints related to genre
 
-export const getAllGenres = async () => {
-  await axiosInstance.get("/genres");
-};
-
 export const getGenre = async (genreID) => {
-  await axiosInstance.get(`genre/${genreID}`);
+  await axiosInstance.get(`genres/${genreID}`);
 };
 
 export const deleteGenre = async (genreID) => {
-  await axiosInstance.delete(`genre/${genreID}`);
+  await axiosInstance.delete(`genres/${genreID}`);
+};
+
+export const genreFetcher = {
+  getAll: async () => (await axiosInstance.get(`/genres`)).data,
+};
+
+export const albumFetcher = {
+  getAll: async () => (await axiosInstance.get("/albums")).data,
+  getOne: async (id) => (await axiosInstance.get(`/albums/${id}`)).data,
+  delete: async (id) => (await axiosInstance.delete(`/albums/${id}`)).data,
 };
