@@ -20,6 +20,7 @@ function Player({ tracks, currentId }) {
   return (
     <div className="w-full h-96">
       <audio
+        className="w-full"
         autoPlay
         src={playerState.trackList[playerState.currentIndex].link}
         controls
