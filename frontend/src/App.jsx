@@ -9,8 +9,10 @@ function App() {
   const [currentId, setCurrentId] = useState("");
 
   useEffect(() => {
-    songsFetcher.getAll().then((res) => setTracks(res));
-    setCurrentId(res[0].id);
+    songsFetcher.getAll().then((res) => {
+      setTracks(res);
+      setCurrentId(res[0].id);
+    });
   }, []);
 
   const handleCurrentId = (id) => {
@@ -24,8 +26,8 @@ function App() {
         src="src/assets/background-main.png"
         alt="background"
       />
-      <TrackList tracks={tracks} />
-      {data.length && <Player currentId={currentId} tracks={data} />}
+      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+      {tracks.length && <Player currentId={currentId} tracks={tracks} />}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useEffect, useState } from "react";
 
@@ -28,3 +29,9 @@ function Player({ tracks, currentId }) {
 }
 
 export default Player;
+
+Player.propTypes = {
+  currentId: PropTypes.string.isRequired,
+  tracks: PropTypes.arrayOf.isRequired,
+  findIndex: PropTypes.func.isRequired,
+};
