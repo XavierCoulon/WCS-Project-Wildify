@@ -16,10 +16,12 @@ function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
       <h2 className="mx-7">
         {title} - {artist}
       </h2>
+
       <p className="mx-7">{roundedTime(duration)}</p>
       <button type="button" onClick={() => handleCurrentId(id)}>
         &#9654;
       </button>
+
     </div>
   );
 }
