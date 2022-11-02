@@ -9,8 +9,7 @@ const axiosInstance = axios.create({
   baseURL: apiUri,
   headers: {
     Authorization: `Bearer ${accessToken}`,
-    // TODO to use json instead //
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
   },
 });
 
@@ -21,7 +20,9 @@ export const songsFetcher = {
   upload: async (selectedFile) => {
     const formData = new FormData();
     formData.append("file", selectedFile);
-    const res = await axiosInstance.post("/songs/", formData);
+    const res = await axiosInstance.post("/songs/", formData, {
+      headers: { "Content-type": "multipart/form-data" },
+    });
     return res.data;
   },
 };
@@ -30,24 +31,17 @@ export const playlistsFetcher = {
   getAll: async () => (await axiosInstance.get("/playlists")).data,
   getOne: async (id) => (await axiosInstance.get(`/playlists/${id}`)).data,
   delete: async (id) => (await axiosInstance.delete(`/playlists/${id}`)).data,
-  create: async ({ title, description }) => {
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    const res = await axiosInstance.post("/playlists/", formData);
+  create: async (playlistDetails) => {
+    const res = await axiosInstance.post("/playlists/", playlistDetails);
     return res.data;
   },
-  update: async ({ id, title, description }) => {
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    const res = await axiosInstance.put(`/playlists/${id}`, formData);
+  assignTrack: async (playlistId, track) => {
+    const res = await axiosInstance.post(
+      `playlists/${playlistId}/addsong`,
+      track
+    );
     return res.data;
   },
-  // Add a song to a playlist --todo
-  // addSong: async(playlistId, songId){
-
-  // }
 };
 
 export const genresFetcher = {
@@ -63,6 +57,8 @@ export const albumsFetcher = {
   uploadPicture: async (selectedPicture, id) => {
     const formData = new FormData();
     formData.append("file", selectedPicture);
-    await axiosInstance.post(`/albums/${id}/picture`, formData);
+    await axiosInstance.post(`/albums/${id}/picture`, formData, {
+      headers: { "Content-type": "multipart/form-data" },
+    });
   },
 };
