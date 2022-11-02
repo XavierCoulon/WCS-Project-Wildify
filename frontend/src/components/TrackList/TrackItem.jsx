@@ -21,7 +21,6 @@ function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
       <button type="button" onClick={() => handleCurrentId(id)}>
         &#9654;
       </button>
-
     </div>
   );
 }
