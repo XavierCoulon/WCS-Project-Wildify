@@ -1,4 +1,3 @@
-
 import Layout from "@components/Layout";
 import Home from "@pages/Home";
 import Favourites from "@pages/Favourites";
@@ -15,7 +14,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState("HOME");
   const [tracks, setTracks] = useState([]);
   const [currentId, setCurrentId] = useState("");
-  
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
       setTracks(res);
@@ -38,15 +36,11 @@ function App() {
       </Layout>
 
       <div className="min-h-screen h-screen w-full">
-        <img
-          className="fixed top-0 left-0 object-cover"
-          src="src/assets/background-main.png"
-          alt="background"
-        />
         <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
         {tracks.length && <Player currentId={currentId} tracks={tracks} />}
       </div>
-    </div>)
-        };
-        
+    </div>
+  );
+}
+
 export default App;
