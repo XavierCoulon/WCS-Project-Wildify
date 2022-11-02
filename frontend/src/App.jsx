@@ -4,6 +4,8 @@ import Favourites from "@pages/Favourites";
 import Uploads from "@pages/Uploads";
 import Playlists from "@pages/Playlists";
 import Profile from "@pages/Profile";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { songsFetcher } from "./utils/axiosTools";
@@ -39,6 +41,7 @@ function App() {
         <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
         {tracks.length && <Player currentId={currentId} tracks={tracks} />}
       </div>
+      <ToastContainer autoClose={2000} />
     </div>
   );
 }
