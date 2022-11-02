@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PlaySvg from "@components/SVG/Play";
 
 function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
   const roundedTime = (time) => {
@@ -16,10 +17,9 @@ function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
       <h2 className="mx-7">
         {title} - {artist}
       </h2>
-
       <p className="mx-7">{roundedTime(duration)}</p>
       <button type="button" onClick={() => handleCurrentId(id)}>
-        &#9654;
+        <PlaySvg color="white" />
       </button>
     </div>
   );
