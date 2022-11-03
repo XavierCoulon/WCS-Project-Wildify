@@ -2,7 +2,9 @@ import React from "react";
 
 function Favourites() {
   return (
-    <div className="bg-slate-800 w-full h-full text-white">Favourites</div>
+    <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
+      Favourites
+    </div>
   );
 }
 

@@ -2,18 +2,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import PropTypes from "prop-types";
 import navLinks from "../../config/navLinks";
+import NavLink from "./NavLink";
 
-export default function Sidebar({ setCurrentPage }) {
+export default function Sidebar({ setCurrentPage, currentPage }) {
   return (
-    <div className=" w-1/5 min-w-[150px] px-10 h-full flex flex-col justify-start align-middle items-center text-white bg-grayCustom ">
+    <div className="w-1/5 min-w-[150px] px-10 h-full flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white bg-slate-500 dark:bg-grayCustom">
       {navLinks.map((link) => (
-        <div
-          key={link.id}
-          onClick={() => setCurrentPage(link.path)}
-          className="w-full my-1 text-gray-400  p-5 border-b-2 border-gray-700 cursor-pointer"
-        >
-          {link.name}
-        </div>
+        <NavLink
+          link={link}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       ))}
     </div>
   );
@@ -21,4 +20,5 @@ export default function Sidebar({ setCurrentPage }) {
 
 Sidebar.propTypes = {
   setCurrentPage: PropTypes.func.isRequired,
+  currentPage: PropTypes.string.isRequired,
 };
