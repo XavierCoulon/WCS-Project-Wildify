@@ -21,6 +21,6 @@ export default function Layout({ children, setCurrentPage }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.element.isRequired,
-  setCurrentPage: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf().isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };

@@ -5,7 +5,7 @@ import { songsFetcher } from "../utils/axiosTools";
 function Upload() {
   const [dragActive, setDragActive] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
-  const inputRef = useRef();
+  const inputRef = useRef("");
 
   const handleDrag = (e) => {
     e.preventDefault();
