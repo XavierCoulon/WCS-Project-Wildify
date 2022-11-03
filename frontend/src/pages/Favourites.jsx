@@ -1,9 +1,6 @@
-import React from "react";
+import FavouritesList from "@components/FavouritesList";
 
 function Favourites() {
-  return (
-    <div className="bg-slate-800 w-full h-full text-white">Favourites</div>
-  );
+  return <FavouritesList />;
 }
-
 export default Favourites;
