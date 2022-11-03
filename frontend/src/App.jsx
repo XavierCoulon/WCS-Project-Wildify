@@ -4,6 +4,7 @@ import Favourites from "@pages/Favourites";
 import Uploads from "@pages/Uploads";
 import Playlists from "@pages/Playlists";
 import Profile from "@pages/Profile";
+import Genres from "@pages/Genres";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
@@ -14,6 +15,7 @@ import TrackList from "./components/TrackList";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("HOME");
+  const [genreName, setGenreName] = useState("");
   const [tracks, setTracks] = useState([]);
   const [currentId, setCurrentId] = useState("");
 
@@ -31,11 +33,16 @@ function App() {
   return (
     <div>
       <Layout className="bg-slate-800" setCurrentPage={setCurrentPage}>
-        {currentPage === "HOME" && <Home />}
+        {currentPage === "HOME" && (
+          <Home setCurrentPage={setCurrentPage} setGenreName={setGenreName} />
+        )}
         {currentPage === "PLAYLISTS" && <Playlists />}
         {currentPage === "UPLOADS" && <Uploads />}
         {currentPage === "FAVOURITES" && <Favourites />}
         {currentPage === "PROFILE" && <Profile />}
+        {currentPage === "GENRES" && (
+          <Genres setCurrentPage={setCurrentPage} genreName={genreName} />
+        )}
       </Layout>
 
       <div className="min-h-screen h-screen w-full">
