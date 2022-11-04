@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PlaySvg from "@components/SVG/Play";
+import PlaySvg from "@components/Player/Play";
 
 function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
   const roundedTime = (time) => {

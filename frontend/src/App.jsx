@@ -30,17 +30,18 @@ function App() {
   return (
     <div>
       <Layout className="bg-slate-800" setCurrentPage={setCurrentPage}>
-        {currentPage === "HOME" && <Home />}
+        {currentPage === "HOME" && (
+          <Home
+            tracks={tracks}
+            handleCurrentId={handleCurrentId}
+            currentId={currentId}
+          />
+        )}
         {currentPage === "PLAYLISTS" && <Playlists />}
         {currentPage === "UPLOADS" && <Uploads />}
         {currentPage === "FAVOURITES" && <Favourites />}
         {currentPage === "PROFILE" && <Profile />}
       </Layout>
-
-      <div className="min-h-screen h-screen w-full">
-        <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-        {tracks.length && <Player currentId={currentId} tracks={tracks} />}
-      </div>
       <ToastContainer autoClose={2000} />
     </div>
   );
