@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-/* eslint-disable jsx-a11y/media-has-caption */
 import React, { useEffect, useRef, useState } from "react";
 import AudioControl from "./Player/AudioControl";
 
