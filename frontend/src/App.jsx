@@ -30,13 +30,16 @@ function App() {
 
   return (
     <div>
+
       <Layout className="bg-slate-800" currentPage={currentPage} setCurrentPage={setCurrentPage}>
+
         {currentPage === "HOME" && (
           <Home
             tracks={tracks}
             handleCurrentId={handleCurrentId}
             currentId={currentId}
             setCurrentPage={setCurrentPage} setGenreName={setGenreName}
+
           />
         )}
         {currentPage === "PLAYLISTS" && <Playlists />}
