@@ -26,10 +26,6 @@ function GenresItem({ genreName, handleCurrentId }) {
           handleCurrentId={handleCurrentId}
         />
       ))}
-
-      {/* <button type="button" onClick={() => setCurrentPage("GENRES")}>
-		  Genre
-		</button> */}
     </div>
   );
 }
@@ -37,7 +33,6 @@ function GenresItem({ genreName, handleCurrentId }) {
 export default GenresItem;
 
 GenresItem.propTypes = {
-  //   setCurrentPage: PropTypes.func.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
   genreName: PropTypes.string.isRequired,
 };

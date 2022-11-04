@@ -2,7 +2,7 @@ import axios from "axios";
 
 const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
-const apiUri = "https://wildify-api.jidayyy.com/api/v1";
+const apiUri = import.meta.env.VITE_ACCESS_URL;
 
 const axiosInstance = axios.create({
   baseURL: apiUri,
