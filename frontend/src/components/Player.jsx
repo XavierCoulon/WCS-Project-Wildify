@@ -74,7 +74,7 @@ function Player({ tracks, currentId }) {
       setIsPlaying(true);
       startTimer();
     }
-  }, [trackIndex]);
+  }, [trackIndex, isPlaying]);
 
   useEffect(() => {
     const newIndex = tracks.findIndex((e) => e.id === currentId);
@@ -95,7 +95,7 @@ function Player({ tracks, currentId }) {
   };
 
   return (
-    <div className="w-full h-200 bg-gray flex flex-row justify-around bottom-0 fixed">
+    <div className="w-full h-150 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
       <div className="flex flex-row space-x-10 justify-self-auto w-full p-16">
         <div className="w-1/9">
           <img
@@ -125,7 +125,7 @@ function Player({ tracks, currentId }) {
             value={trackProgress}
             step="1"
             min="0"
-            max={duration}
+            max={audioRef.duration}
             className="progess w-full"
             onChange={(e) => onScrub(e.target.value)}
             onMouseUp={onScrubEnd}
@@ -147,42 +147,3 @@ Player.propTypes = {
 };
 
 export default Player;
-
-// import PropTypes from "prop-types";
-// /* eslint-disable jsx-a11y/media-has-caption */
-// import React, { useEffect, useState } from "react";
-
-// function Player({ tracks, currentId }) {
-//   const [playerState, setPlayerState] = useState({
-//     currentIndex: 0,
-//     trackList: tracks,
-//   });
-
-//   useEffect(() => {
-//     const newIndex = tracks.findIndex((e) => e.id === currentId);
-
-//     setPlayerState((state) => ({
-//       ...state,
-//       currentIndex: newIndex,
-//     }));
-//   }, [currentId]);
-
-//   return (
-//     <div className="w-full h-96">
-//       <audio
-//         className="w-full"
-//         autoPlay
-//         src={playerState.trackList[playerState.currentIndex].link}
-//         controls
-//       />
-//     </div>
-//   );
-// }
-
-// export default Player;
-
-// Player.propTypes = {
-//   currentId: PropTypes.string.isRequired,
-//   tracks: PropTypes.arrayOf.isRequired,
-//   findIndex: PropTypes.func.isRequired,
-// };
