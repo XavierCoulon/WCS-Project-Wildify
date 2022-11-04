@@ -14,11 +14,13 @@ function Player({ tracks, currentId }) {
 
   const { duration } = audioRef.current;
 
-  const currentPercentage = duration
-    ? `${(trackProgress / duration) * 100}%`
-    : "0%";
-
-  const trackStyling = `-webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #fff), color-stop(${currentPercentage}, #777))`;
+  const toNextTrack = () => {
+    if (trackIndex < tracks.length - 1) {
+      setTrackIndex(trackIndex + 1);
+    } else {
+      setTrackIndex(0);
+    }
+  };
 
   const startTimer = () => {
     // On efface les timers en cours
@@ -51,14 +53,6 @@ function Player({ tracks, currentId }) {
       setTrackIndex(tracks.length - 1);
     } else {
       setTrackIndex(trackIndex - 1);
-    }
-  };
-
-  const toNextTrack = () => {
-    if (trackIndex < tracks.length - 1) {
-      setTrackIndex(trackIndex + 1);
-    } else {
-      setTrackIndex(0);
     }
   };
 
@@ -131,7 +125,7 @@ function Player({ tracks, currentId }) {
             value={trackProgress}
             step="1"
             min="0"
-            max={duration ? duration : `{${duration}}`}
+            max={duration}
             className="progess w-full"
             onChange={(e) => onScrub(e.target.value)}
             onMouseUp={onScrubEnd}

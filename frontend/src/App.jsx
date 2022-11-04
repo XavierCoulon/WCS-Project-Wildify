@@ -1,15 +1,15 @@
-import Layout from "@components/Layout";
-import Home from "@pages/Home";
-import Favourites from "@pages/Favourites";
-import Uploads from "@pages/Uploads";
-import Playlists from "@pages/Playlists";
-import Profile from "@pages/Profile";
-import Genres from "@pages/Genres";
+import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import Home from "./pages/Home";
+import Favourites from "./pages/Favourites";
+import Uploads from "./pages/Uploads";
+import Playlists from "./pages/Playlists";
+import Profile from "./pages/Profile";
+import Genres from "./pages/Genres";
 import "./App.css";
-import { useEffect, useState } from "react";
 import { songsFetcher } from "./utils/axiosTools";
+import Layout from "./components/Layout";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("HOME");
@@ -30,16 +30,18 @@ function App() {
 
   return (
     <div>
-
-      <Layout className="bg-slate-800" currentPage={currentPage} setCurrentPage={setCurrentPage}>
-
+      <Layout
+        className="bg-slate-800"
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      >
         {currentPage === "HOME" && (
           <Home
             tracks={tracks}
             handleCurrentId={handleCurrentId}
             currentId={currentId}
-            setCurrentPage={setCurrentPage} setGenreName={setGenreName}
-
+            setCurrentPage={setCurrentPage}
+            setGenreName={setGenreName}
           />
         )}
         {currentPage === "PLAYLISTS" && <Playlists />}

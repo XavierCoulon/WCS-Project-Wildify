@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function PauseSvg(props) {
+function PauseSvg() {
   const [hover, setHover] = React.useState(false);
   return (
     <div className="px-5">
@@ -11,7 +11,6 @@ function PauseSvg(props) {
         height={16}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        {...props}
       >
         <path
           fillRule="evenodd"
