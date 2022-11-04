@@ -1,9 +1,11 @@
-import React from "react";
+import FavouritesList from "@components/FavouritesList";
 
 function Favourites() {
+
   return (
-    <div className="bg-slate-800 w-full h-full text-white">Favourites</div>
+    <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
+<FavouritesList />
+    </div>
   );
 }
-
 export default Favourites;

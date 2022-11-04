@@ -1,11 +1,31 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 function Navbar({ setIsMenu, isMenu }) {
+  const [theme, setTheme] = useState("light");
+
+  const handleToggleDarkMode = () => {
+    if (theme === "dark") {
+      setTheme("light");
+    }
+    if (theme === "light") {
+      setTheme("dark");
+    }
+  };
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+    }
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  }, [theme]);
+
   return (
-    <div className=" bg-grayCustom px-10 flex justify-between items-center align-middle w-full h-24">
+    <div className="bg-slate-500 dark:bg-grayCustom px-10 flex justify-between items-center align-middle w-full h-24">
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}
@@ -23,9 +43,17 @@ function Navbar({ setIsMenu, isMenu }) {
       )}
       <input
         type="text"
-        className="bg-slate-800 rounded-lg w-3/5 px-3 py-1 border-0 text-slate-400 focus:border-0 lg:ml-28"
+        className="dark:bg-slate-800 bg-white rounded-lg w-3/5 px-3 py-1 border-0 text-slate-400 focus:border-0 lg:ml-28"
         placeholder="Search..."
       />
+      <button
+        onClick={handleToggleDarkMode}
+        type="button"
+        className="h-8 w-15 rounded-lg px-1 text-white dark:text-black bg-slate-400 dark:bg-slate-300  "
+      >
+        🌓
+      </button>
+
       <img src="src/assets/logo.png" alt="logo" className="w-10" />
     </div>
   );

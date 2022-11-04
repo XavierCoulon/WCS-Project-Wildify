@@ -2,11 +2,16 @@ import Player from "@components/Player";
 import TrackList from "@components/TrackList";
 import React from "react";
 import PropTypes from "prop-types";
+import GenresList from "@components/GenresList";
 
-function Home({ tracks, currentId, handleCurrentId }) {
+function Home({ tracks, currentId, handleCurrentId, setCurrentPage, setGenreName }) {
   return (
-    <div className="bg-slate-800 w-full h-full text-white">
-      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+<div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
+      <p>Home</p>
+      <p>Genres</p>
+
+      <GenresList setCurrentPage={setCurrentPage} setGenreName={setGenreName} />
+            <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
       {tracks.length && <Player currentId={currentId} tracks={tracks} />};
     </div>
   );
@@ -15,7 +20,11 @@ function Home({ tracks, currentId, handleCurrentId }) {
 export default Home;
 
 Home.propTypes = {
+
   tracks: PropTypes.arrayOf().isRequired,
   currentId: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  setGenreName: PropTypes.func.isRequired,
+
 };
