@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GenresItem from "../components/GenresList";
+import GenresItem from "../components/GenresList/GenresItem";
 
 function Genres({ genreName }) {
   return (
