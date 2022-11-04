@@ -3,18 +3,28 @@ import TrackItem from "./TrackItem";
 
 function TrackList({ tracks, handleCurrentId }) {
   return (
-    <div className="w-full flex flex-col p-5 ">
-      {tracks.map((e) => (
-        <TrackItem
-          key={e.id}
-          id={e.id}
-          title={e.title}
-          duration={e.duration}
-          artist={e.artist.name}
-          picture={e.album.picture}
-          handleCurrentId={handleCurrentId}
-        />
-      ))}
+    <div>
+      <div>
+        {/* <img
+          className="fixed top-0 left-0 object-cover"
+          src="src/assets/background-main.png"
+          alt="background"
+        /> */}
+      </div>
+
+      <div className="w-full flex flex-col p-5 ">
+        {tracks.map((e) => (
+          <TrackItem
+            key={e.id}
+            id={e.id}
+            title={e.title}
+            duration={e.duration}
+            artist={e.artist.name}
+            picture={e.album.picture}
+            handleCurrentId={handleCurrentId}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -17,6 +17,8 @@ export const songsFetcher = {
   getAll: async () => (await axiosInstance.get(`/songs/`)).data,
   getOne: async (id) => (await axiosInstance.get(`/songs/${id}`)).data,
   delete: async (id) => (await axiosInstance.delete(`/songs/${id}`)).data,
+  getAllByGenre: async (genre) =>
+    (await axiosInstance.get(`/songs?genre=${genre}`)).data,
   upload: async (selectedFile) => {
     const formData = new FormData();
     formData.append("file", selectedFile);
