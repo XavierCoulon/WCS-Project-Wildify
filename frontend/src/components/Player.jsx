@@ -12,8 +12,6 @@ function Player({ tracks, currentId }) {
   const audioRef = useRef(new Audio(tracks[trackIndex].link));
   const intervalRef = useRef();
 
-  const { duration } = audioRef.current;
-
   const toNextTrack = () => {
     if (trackIndex < tracks.length - 1) {
       setTrackIndex(trackIndex + 1);
