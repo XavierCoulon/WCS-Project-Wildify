@@ -3,7 +3,7 @@ import React from "react";
 
 function Uploads() {
   return (
-    <div className="bg-slate-800 w-full h-full text-white flex items-center justify-center">
+    <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <Upload />
     </div>
   );

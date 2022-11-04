@@ -10,8 +10,6 @@ import { ToastContainer } from "react-toastify";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { songsFetcher } from "./utils/axiosTools";
-import Player from "./components/Player";
-import TrackList from "./components/TrackList";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("HOME");
@@ -32,9 +30,14 @@ function App() {
 
   return (
     <div>
-      <Layout className="bg-slate-800" setCurrentPage={setCurrentPage}>
+      <Layout className="bg-slate-800" currentPage={currentPage} setCurrentPage={setCurrentPage}>
         {currentPage === "HOME" && (
-          <Home setCurrentPage={setCurrentPage} setGenreName={setGenreName} />
+          <Home
+            tracks={tracks}
+            handleCurrentId={handleCurrentId}
+            currentId={currentId}
+            setCurrentPage={setCurrentPage} setGenreName={setGenreName}
+          />
         )}
         {currentPage === "PLAYLISTS" && <Playlists />}
         {currentPage === "UPLOADS" && <Uploads />}
@@ -44,12 +47,6 @@ function App() {
           <Genres setCurrentPage={setCurrentPage} genreName={genreName} />
         )}
       </Layout>
-
-      <div className="min-h-screen h-screen w-full">
-        <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-
-        {tracks.length && <Player currentId={currentId} tracks={tracks} />}
-      </div>
       <ToastContainer autoClose={2000} />
     </div>
   );

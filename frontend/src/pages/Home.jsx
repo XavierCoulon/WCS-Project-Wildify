@@ -4,7 +4,7 @@ import GenresList from "@components/GenresList";
 
 function Home({ setCurrentPage, setGenreName }) {
   return (
-    <div className="bg-slate-800 w-full h-full text-white">
+<div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <p>Home</p>
       <p>Genres</p>
 
