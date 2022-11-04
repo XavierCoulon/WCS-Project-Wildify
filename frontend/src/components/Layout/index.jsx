@@ -7,7 +7,7 @@ export default function Layout({ children, setCurrentPage, currentPage }) {
   const [isMenu, setIsMenu] = useState(false);
 
   return (
-    <div className="h-screen w-full flex-col items-center justify-start align-middle flex">
+    <div className="h-full w-full flex-col items-center justify-start align-middle flex">
       <Navbar
         isMenu={isMenu}
         setIsMenu={setIsMenu}

@@ -4,7 +4,7 @@ import TrackItem from "./TrackItem";
 function TrackList({ tracks, handleCurrentId }) {
   return (
     <div>
-      <div className="w-full flex flex-col p-5 ">
+      <div className="w-full h-full flex flex-col p-5 ">
         {tracks.map((e) => (
           <TrackItem
             key={e.id}

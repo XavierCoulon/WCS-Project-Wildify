@@ -6,14 +6,16 @@ import NavLink from "./NavLink";
 
 export default function Sidebar({ setCurrentPage, currentPage }) {
   return (
-    <div className="w-1/5 min-w-[150px] px-10 h-full flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white bg-slate-500 dark:bg-grayCustom">
-      {navLinks.map((link) => (
-        <NavLink
-          link={link}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-      ))}
+    <div className=" dark:text-white bg-slate-500 dark:bg-grayCustom">
+      <div className="w-1/5 min-w-[250px] px-10 h-screen flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white bg-slate-500 dark:bg-grayCustom">
+        {navLinks.map((link) => (
+          <NavLink
+            link={link}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        ))}
+      </div>
     </div>
   );
 }

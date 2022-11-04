@@ -12,7 +12,7 @@ function Home({
   setGenreName,
 }) {
   return (
-    <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
+    <div className=" bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <p>Home</p>
       <p>Genres</p>
       <GenresList setCurrentPage={setCurrentPage} setGenreName={setGenreName} />

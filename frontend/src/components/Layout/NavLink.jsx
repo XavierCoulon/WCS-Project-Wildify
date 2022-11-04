@@ -18,7 +18,7 @@ function NavLink({ link, currentPage, setCurrentPage }) {
     <div
       key={link.id}
       onClick={() => setCurrentPage(link.path)}
-      className={`flex flex-row flex-wrap justify-between items-center align-middle w-full my-1 ${
+      className={`flex flex-row flex-wrap justify-between items-center align-middle w-full h-full my-1 ${
         active && "text-yellow-300"
       } p-5 border-b-2 border-gray-700 cursor-pointer`}
     >
