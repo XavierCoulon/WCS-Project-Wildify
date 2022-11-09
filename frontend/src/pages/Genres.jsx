@@ -1,17 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
-import GenresItem from "../components/GenresList/GenresItem";
+import GenresList from "../components/GenresList";
 
-function Genres({ genreName }) {
+function Genres() {
   return (
     <div className="bg-slate-800 w-full h-full text-white">
-      <GenresItem genreName={genreName} />
+      <GenresList />
     </div>
   );
 }
 
 export default Genres;
-
-Genres.propTypes = {
-  genreName: PropTypes.string.isRequired,
-};

@@ -1,5 +1,5 @@
-import Upload from "@components/Upload";
 import React from "react";
+import Upload from "../components/Upload";
 
 function Uploads() {
   return (

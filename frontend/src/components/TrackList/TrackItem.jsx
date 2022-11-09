@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PlaySvg from "../Player/Play";
 import storage from "../../utils/localStorageTools";
+import logo from "../../assets/logo.png";
 
 function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
   const roundedTime = (time) => {
@@ -31,7 +32,11 @@ function TrackItem({ id, title, duration, artist, picture, handleCurrentId }) {
 
   return (
     <div className="flex p-2 bg-gray opacity-90 rounded-md my-1 text-white items-center justify-between  flex-row align-middle">
-      <img className="w-10 h-10" src={picture} alt="" />
+      <img
+        className="w-10 h-10"
+        src={`${picture === null ? logo : picture}`}
+        alt=""
+      />
       <h2 className="mx-7">
         {title} - {artist}
       </h2>

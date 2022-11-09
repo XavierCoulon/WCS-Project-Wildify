@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
 import { songsFetcher } from "../../utils/axiosTools";
 import TrackItem from "../TrackList/TrackItem";
 
-function GenresItem({ genreName, handleCurrentId }) {
+function GenresItem({ handleCurrentId }) {
   const [tracks, setTracks] = useState(null);
+  const { name } = useParams();
 
   useEffect(() => {
-    songsFetcher.getAllByGenre(genreName).then((result) => setTracks(result));
+    songsFetcher.getAllByGenre(name).then((result) => setTracks(result));
   }, []);
 
   if (!tracks) return <div>Loading ...</div>;
@@ -34,5 +36,4 @@ export default GenresItem;
 
 GenresItem.propTypes = {
   handleCurrentId: PropTypes.func.isRequired,
-  genreName: PropTypes.string.isRequired,
 };
