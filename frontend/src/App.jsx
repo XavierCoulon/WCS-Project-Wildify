@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
 import Uploads from "./pages/Uploads";
 import Playlists from "./pages/Playlists";
+import PlaylistTracks from "./components/PlaylistsList/PlaylistTracks";
 import Profile from "./pages/Profile";
 import Genres from "./pages/Genres";
 import GenresItem from "./components/GenresList/GenresItem";
@@ -47,6 +48,7 @@ function App() {
               }
             />
             <Route path="/playlists" element={<Playlists />} />
+            <Route path="/playlists/:id" element={<PlaylistTracks />} />
             <Route path="/uploads" element={<Uploads />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/favourites" element={<Favourites />} />

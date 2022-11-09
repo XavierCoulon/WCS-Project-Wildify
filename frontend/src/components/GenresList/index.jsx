@@ -12,9 +12,14 @@ function GenresList() {
   if (!genres) return <div>Loading ...</div>;
 
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-4 p-5">
       {genres.map((genre) => (
-        <Link to={`/genres/${genre.name}`}>{genre.name}</Link>
+        <Link
+          className=" bg-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 "
+          to={`/genres/${genre.name}`}
+        >
+          {genre.name}
+        </Link>
       ))}
     </div>
   );

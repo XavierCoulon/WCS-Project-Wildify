@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import storage from "../../utils/localStorageTools";
-import FavouritesItem from "./FavouritesItem";
+import { songsFetcher } from "../../utils/axiosTools";
+import TrackList from "../TrackList";
 
 function FavouritesList({ handleCurrentId }) {
-  const [favourites, setFavourites] = useState(() => storage.get("favorite"));
+  const [tracks, setTracks] = useState(null);
+  const favourites = storage.get("favorite");
 
   useEffect(() => {
-    setFavourites(storage.get("favorite"));
-  }, []);
+    songsFetcher
+      .getAll()
+      .then((result) =>
+        setTracks(result.filter((track) => favourites.includes(track.id)))
+      );
+  }, [favourites]);
+
+  if (!tracks) return <div>Loading ...</div>;
+
   return (
     <div>
-      {favourites &&
-        favourites.map((trackId) => (
-          <FavouritesItem trackId={trackId} handleCurrentId={handleCurrentId} />
-        ))}
+      {favourites && (
+        <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+      )}
     </div>
   );
 }

@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
-import { songsFetcher } from "../../utils/axiosTools";
+import { playlistsFetcher } from "../../utils/axiosTools";
 import TrackList from "../TrackList";
 
-function GenresItem({ handleCurrentId }) {
+function PlaylistTracks({ handleCurrentId }) {
   const [tracks, setTracks] = useState(null);
-  const { name } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    songsFetcher.getAllByGenre(name).then((result) => setTracks(result));
+    playlistsFetcher.getTracks(id).then((result) => setTracks(result.songs));
   }, []);
 
   if (!tracks) return <div>Loading ...</div>;
-  if (tracks.length === 0) return <div>No tracks on this genre...</div>;
 
   return (
     <div className="w-full">
@@ -22,8 +21,8 @@ function GenresItem({ handleCurrentId }) {
   );
 }
 
-export default GenresItem;
+export default PlaylistTracks;
 
-GenresItem.propTypes = {
+PlaylistTracks.propTypes = {
   handleCurrentId: PropTypes.func.isRequired,
 };
