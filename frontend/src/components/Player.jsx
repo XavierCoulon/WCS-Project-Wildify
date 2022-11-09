@@ -92,8 +92,8 @@ function Player({ tracks, currentId }) {
   };
 
   return (
-    <div className="w-full h-150 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
-      <div className="flex flex-row space-x-10 justify-self-auto w-full p-16">
+    <div className="w-full h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
+      <div className="flex flex-row space-x-10 justify-self-auto w-full p-5">
         <div className="w-1/9">
           <img
             src={tracks[trackIndex].album.picture}
