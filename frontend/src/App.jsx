@@ -13,11 +13,13 @@ import Genres from "./pages/Genres";
 import GenresItem from "./components/GenresList/GenresItem";
 import Navbar from "./components/Layout/Navbar";
 import Sidebar from "./components/Layout/Sidebar";
+import Player from "./components/Player";
 
 function App() {
   const [tracks, setTracks] = useState([]);
   const [currentId, setCurrentId] = useState("");
   const [isMenu, setIsMenu] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
@@ -28,6 +30,11 @@ function App() {
 
   const handleCurrentId = (id) => {
     setCurrentId(id);
+    setIsPlaying(true);
+  };
+
+  const handlePLay = () => {
+    setIsPlaying((state) => !state);
   };
 
   return (
@@ -44,6 +51,9 @@ function App() {
                   tracks={tracks}
                   handleCurrentId={handleCurrentId}
                   currentId={currentId}
+                  handlePLay={handlePLay}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying}
                 />
               }
             />
@@ -53,9 +63,31 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/genres" element={<Genres />} />
-            <Route path="/genres/:name" element={<GenresItem />} />
+            <Route
+              path="/genres/:name"
+              element={
+                <GenresItem
+                  tracks={tracks}
+                  handleCurrentId={handleCurrentId}
+                  currentId={currentId}
+                  handlePLay={handlePLay}
+                  setIsPlaying={setIsPlaying}
+                  isPlaying={isPlaying}
+                  setTracks={setTracks}
+                />
+              }
+            />
           </Routes>
         </div>
+        {tracks.length && (
+          <Player
+            currentId={currentId}
+            tracks={tracks}
+            handlePLay={handlePLay}
+            setIsPlaying={setIsPlaying}
+            isPlaying={isPlaying}
+          />
+        )}
       </div>
 
       <ToastContainer autoClose={2000} />

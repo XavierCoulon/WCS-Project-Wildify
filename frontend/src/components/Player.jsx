@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 import AudioControl from "./Player/AudioControl";
 
-function Player({ tracks, currentId }) {
+function Player({ tracks, currentId, handlePLay, setIsPlaying, isPlaying }) {
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   // Refs
   const audioRef = useRef(new Audio(tracks[trackIndex].link));
@@ -68,14 +67,13 @@ function Player({ tracks, currentId }) {
 
     if (isPlaying) {
       audioRef.current.play();
-      setIsPlaying(true);
       startTimer();
     }
   }, [trackIndex, isPlaying]);
 
   useEffect(() => {
     const newIndex = tracks.findIndex((e) => e.id === currentId);
-
+    // setIsPlaying(true);
     setTrackIndex(newIndex);
   }, [currentId]);
 
@@ -85,10 +83,6 @@ function Player({ tracks, currentId }) {
     const minSec = Math.round(+splitedTime[1] * 100) / 100;
     result.push(splitedTime[0], minSec.toString().padStart(5, "0"));
     return result.join(":");
-  };
-
-  const handlePLay = () => {
-    setIsPlaying((state) => !state);
   };
 
   return (
@@ -141,6 +135,9 @@ Player.propTypes = {
   currentId: PropTypes.string.isRequired,
   tracks: PropTypes.arrayOf.isRequired,
   findIndex: PropTypes.func.isRequired,
+  handlePLay: PropTypes.func.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
 };
 
 export default Player;

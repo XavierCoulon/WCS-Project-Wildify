@@ -1,15 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Player from "../components/Player";
 import TrackList from "../components/TrackList";
 import GenresList from "../components/GenresList";
 
-function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
+function Home({
+  tracks,
+  currentId,
+  handleCurrentId,
+  setGenreName,
+  handlePLay,
+  setIsPlaying,
+  isPlaying,
+}) {
   return (
     <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
-      <GenresList setGenreName={setGenreName} />
-      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-      {tracks.length && <Player currentId={currentId} tracks={tracks} />}
+      <GenresList
+        setGenreName={setGenreName}
+        tracks={tracks}
+        currentId={currentId}
+        handleCurrentId={handleCurrentId}
+        handlePLay={handlePLay}
+        setIsPlaying={setIsPlaying}
+        isPlaying={isPlaying}
+      />
+      <TrackList
+        tracks={tracks}
+        currentId={currentId}
+        handleCurrentId={handleCurrentId}
+        handlePLay={handlePLay}
+        setIsPlaying={setIsPlaying}
+        isPlaying={isPlaying}
+      />
     </div>
   );
 }
@@ -21,4 +42,7 @@ Home.propTypes = {
   currentId: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
   setGenreName: PropTypes.func.isRequired,
+  handlePLay: PropTypes.func.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
 };
