@@ -6,7 +6,7 @@ import GenresList from "../components/GenresList";
 
 function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
   return (
-    <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
+    <div className="bg-white dark:bg-slate-800 w-full h-screen  text-black dark:text-white">
       <GenresList setGenreName={setGenreName} />
       <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
       {tracks.length && <Player currentId={currentId} tracks={tracks} />}
