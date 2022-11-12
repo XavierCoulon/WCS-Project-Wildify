@@ -1,4 +1,5 @@
 import { createContext, useContext, useMemo, useState } from "react";
+import PropTypes from "prop-types";
 
 const playerContext = createContext(null);
 
@@ -22,3 +23,7 @@ const usePlayerContext = () => {
 };
 
 export default usePlayerContext;
+
+PlayerContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
