@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { songsFetcher } from "../../utils/axiosTools";
 import TrackList from "../TrackList";
+import usePlayerContext from "../../Context/PlayerContext";
 
 function GenresItem({ handleCurrentId }) {
-  const [tracks, setTracks] = useState(null);
   const { name } = useParams();
+  const { tracks, setTracks } = usePlayerContext();
 
   useEffect(() => {
     songsFetcher.getAllByGenre(name).then((result) => setTracks(result));

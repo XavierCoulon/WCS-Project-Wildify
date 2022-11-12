@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
+import usePlayerContext from "../Context/PlayerContext";
 import AudioControl from "./Player/AudioControl";
 
-function Player({ tracks, currentId }) {
+function Player({ currentId }) {
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const { tracks } = usePlayerContext();
 
   // Refs
-  const audioRef = useRef(new Audio(tracks[trackIndex].link));
+  const audioRef = useRef(null);
+
   const intervalRef = useRef();
 
   const toNextTrack = () => {
@@ -18,6 +21,10 @@ function Player({ tracks, currentId }) {
       setTrackIndex(0);
     }
   };
+
+  useEffect(() => {
+    audioRef.current = new Audio(tracks[trackIndex].link);
+  }, []);
 
   const startTimer = () => {
     // On efface les timers en cours
@@ -79,17 +86,18 @@ function Player({ tracks, currentId }) {
     setTrackIndex(newIndex);
   }, [currentId]);
 
-  const roundedTime = (time) => {
-    const result = [];
-    const splitedTime = time.split(":");
-    const minSec = Math.round(+splitedTime[1] * 100) / 100;
-    result.push(splitedTime[0], minSec.toString().padStart(5, "0"));
-    return result.join(":");
-  };
+  function secondsToHms(audioTime) {
+    const audioTime2 = Number(audioTime) || 0;
+    const m = Math.floor((audioTime2 % 3600) / 60);
+    const s = Math.floor((audioTime2 % 3600) % 60);
+    return `${m}:${s < 10 ? "0" : ""}${s}`;
+  }
 
   const handlePLay = () => {
     setIsPlaying((state) => !state);
   };
+
+  if (audioRef.current === null || tracks.length === 0) return "Loading ...";
 
   return (
     <div className="w-full h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
@@ -106,7 +114,7 @@ function Player({ tracks, currentId }) {
           <h3>From {tracks[trackIndex].artist.name}</h3>
         </div>
         <div className="w-1/8">
-          <p>{audioRef.current.currentTime}</p>
+          <p>{secondsToHms(audioRef.current.currentTime)}</p>
         </div>
         <div className="w-2/6">
           <div className="flex justify-center">
@@ -130,7 +138,7 @@ function Player({ tracks, currentId }) {
           />
         </div>
         <div className="w-1/8">
-          <p>{roundedTime(tracks[trackIndex].duration)}</p>
+          <p>{secondsToHms(audioRef.current.duration)}</p>
         </div>
       </div>
     </div>
@@ -139,8 +147,6 @@ function Player({ tracks, currentId }) {
 
 Player.propTypes = {
   currentId: PropTypes.string.isRequired,
-  tracks: PropTypes.arrayOf.isRequired,
-  findIndex: PropTypes.func.isRequired,
 };
 
 export default Player;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import PlaylistsModal from "../PlaylistsList/PlaylistsModal";
 import TrackItem from "./TrackItem";
 
-function TrackList({ tracks, handleCurrentId }) {
+function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   const [playlistsModal, setPlaylistsModal] = useState({
     isActive: false,
     trackId: null,
@@ -17,6 +17,10 @@ function TrackList({ tracks, handleCurrentId }) {
     setPlaylistsModal({ ...playlistsModal, isActive: false, trackId: null });
   };
 
+  const changeTrack = ({ id }) => {
+    handleCurrentId({ id });
+  };
+
   return (
     <div className="flex flex-col p-5 ">
       {tracks.map((e) => (
@@ -27,8 +31,10 @@ function TrackList({ tracks, handleCurrentId }) {
           duration={e.duration}
           artist={e.artist.name}
           picture={e.album.picture}
-          handleCurrentId={handleCurrentId}
+          handleCurrentId={changeTrack}
           onPlaylist={handlerPlaylistModal}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
         />
       ))}
       {/* <PlaylistCreation /> */}
@@ -45,6 +51,8 @@ function TrackList({ tracks, handleCurrentId }) {
 TrackList.propTypes = {
   tracks: PropTypes.arrayOf().isRequired,
   handleCurrentId: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
 };
 
 export default TrackList;

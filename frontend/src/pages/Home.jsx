@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Player from "../components/Player";
+import usePlayerContext from "../Context/PlayerContext";
+import { songsFetcher } from "../utils/axiosTools";
 import TrackList from "../components/TrackList";
 import GenresList from "../components/GenresList";
 
-function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
+function Home({ handleCurrentId, setGenreName, setCurrentId }) {
+  const { tracks, setTracks } = usePlayerContext();
+  const [displayedTracks, setDisplayedTracks] = useState(tracks);
+
+  useEffect(() => {
+    songsFetcher.getAll().then((res) => {
+      setTracks(res);
+      setDisplayedTracks(res);
+      setCurrentId(res[0].id);
+    });
+  }, []);
+
   return (
     <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <GenresList setGenreName={setGenreName} />
-      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-      {tracks.length && <Player currentId={currentId} tracks={tracks} />}
+      <TrackList tracks={displayedTracks} handleCurrentId={handleCurrentId} />
     </div>
   );
 }
@@ -17,8 +28,7 @@ function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
 export default Home;
 
 Home.propTypes = {
-  tracks: PropTypes.arrayOf().isRequired,
-  currentId: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
   setGenreName: PropTypes.func.isRequired,
+  setCurrentId: PropTypes.func.isRequired,
 };
