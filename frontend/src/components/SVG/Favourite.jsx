@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 const FavouriteIcon = (props) => {
   const [active, setActive] = useState(false);
-  const { currentPage, path } = props;
+  const { path, currentPage } = props;
 
   useEffect(() => {
     if (path === currentPage) {
