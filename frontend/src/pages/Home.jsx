@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TrackList from "../components/TrackList";
-import GenresList from "../components/GenresList";
+import GenresList from "../components/GenresList/index_original";
 
 function Home({
   tracks,
