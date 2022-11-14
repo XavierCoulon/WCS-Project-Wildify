@@ -29,14 +29,14 @@ function Navbar({ setIsMenu, isMenu }) {
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}
-          className="w-10 mr-5 md:mr-24 lg:hidden"
+          className="w-10 h-10 mr-5 md:mr-24 lg:hidden"
           src="src/assets/burger-icon.png"
           alt="burger"
         />
       ) : (
         <img
           onClick={() => setIsMenu((state) => !state)}
-          className="w-10 mr-5 md:mr-24 lg:hidden"
+          className="w-10  mr-5 md:mr-24 lg:hidden"
           src="src/assets/burger-icon-cross.png "
           alt="burger"
         />

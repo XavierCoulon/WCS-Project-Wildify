@@ -86,7 +86,7 @@ function Player({ tracks, currentId, handlePLay, setIsPlaying, isPlaying }) {
   };
 
   return (
-    <div className="w-full h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
+    <div className="w-full md:ml-[200px] h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
       <div className="flex flex-row space-x-10 justify-self-auto w-full p-5">
         <div className="w-1/9">
           <img
