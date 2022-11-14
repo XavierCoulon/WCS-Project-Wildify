@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { genresFetcher } from "../../utils/axiosTools";
 
-function GenresList({ setCurrentPage, setGenreName }) {
+function GenresList() {
   const [genres, setGenres] = useState(null);
 
   useEffect(() => {
@@ -12,26 +12,17 @@ function GenresList({ setCurrentPage, setGenreName }) {
   if (!genres) return <div>Loading ...</div>;
 
   return (
-    <div className="grid-cols-4 grid-flow-row">
+    <div className="grid grid-cols-4 p-5">
       {genres.map((genre) => (
-        <button
-          className="text-grey-500 mr-5 mt-5 py-2 px-6 rounded-lg border-0 text-sm font-medium bg-blue-50 text-blue-700 hover:bg-amber-50 hover:text-amber-700"
-          type="button"
-          onClick={() => {
-            setGenreName(genre.name);
-            setCurrentPage("GENRES");
-          }}
+        <Link
+          className=" bg-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 "
+          to={`/genres/${genre.name}`}
         >
           {genre.name}
-        </button>
+        </Link>
       ))}
     </div>
   );
 }
 
 export default GenresList;
-
-GenresList.propTypes = {
-  setCurrentPage: PropTypes.func.isRequired,
-  setGenreName: PropTypes.func.isRequired,
-};

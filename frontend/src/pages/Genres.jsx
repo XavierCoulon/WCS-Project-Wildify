@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GenresItem from "../components/GenresList/GenresItem";
+import GenresList from "../components/GenresList";
 
-function Genres({ genreName }) {
+function Genres({ handleCurrentId }) {
   return (
     <div className="bg-slate-800 w-full h-full text-white">
-      <GenresItem genreName={genreName} />
+      <GenresList handleCurrentId={handleCurrentId} />
     </div>
   );
 }
@@ -13,5 +13,5 @@ function Genres({ genreName }) {
 export default Genres;
 
 Genres.propTypes = {
-  genreName: PropTypes.string.isRequired,
+  handleCurrentId: PropTypes.func.isRequired,
 };
