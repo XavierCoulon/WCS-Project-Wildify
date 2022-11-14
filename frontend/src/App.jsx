@@ -13,13 +13,13 @@ import Genres from "./pages/Genres";
 import GenresItem from "./components/GenresList/GenresItem";
 import Navbar from "./components/Layout/Navbar";
 import Sidebar from "./components/Layout/Sidebar";
+import usePlayerContext from "./Context/PlayerContext";
 import Player from "./components/Player";
 
 function App() {
-  const [tracks, setTracks] = useState([]);
   const [currentId, setCurrentId] = useState("");
   const [isMenu, setIsMenu] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const { tracks, setTracks } = usePlayerContext();
 
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
@@ -28,7 +28,7 @@ function App() {
     });
   }, []);
 
-  const handleCurrentId = (id) => {
+  const handleCurrentId = ({ id }) => {
     setCurrentId(id);
     setIsPlaying(true);
   };
@@ -51,9 +51,7 @@ function App() {
                   tracks={tracks}
                   handleCurrentId={handleCurrentId}
                   currentId={currentId}
-                  handlePLay={handlePLay}
-                  setIsPlaying={setIsPlaying}
-                  isPlaying={isPlaying}
+                  setCurrentId={setCurrentId}
                 />
               }
             />
@@ -62,32 +60,17 @@ function App() {
             <Route path="/uploads" element={<Uploads />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/favourites" element={<Favourites />} />
-            <Route path="/genres" element={<Genres />} />
+            <Route
+              path="/genres"
+              element={<Genres handleCurrentId={handleCurrentId} />}
+            />
             <Route
               path="/genres/:name"
-              element={
-                <GenresItem
-                  tracks={tracks}
-                  handleCurrentId={handleCurrentId}
-                  currentId={currentId}
-                  handlePLay={handlePLay}
-                  setIsPlaying={setIsPlaying}
-                  isPlaying={isPlaying}
-                  setTracks={setTracks}
-                />
-              }
+              element={<GenresItem handleCurrentId={handleCurrentId} />}
             />
           </Routes>
         </div>
-        {tracks.length && (
-          <Player
-            currentId={currentId}
-            tracks={tracks}
-            handlePLay={handlePLay}
-            setIsPlaying={setIsPlaying}
-            isPlaying={isPlaying}
-          />
-        )}
+        {tracks.length && <Player currentId={currentId} tracks={tracks} />}
       </div>
 
       <ToastContainer autoClose={2000} />

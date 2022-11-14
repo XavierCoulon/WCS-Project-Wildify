@@ -74,7 +74,7 @@ function TrackItem({
         >
           ...
         </span>
-        <button type="button" onClick={() => handleCurrentId(id)}>
+        <button type="button" onClick={() => handleCurrentId({ id })}>
           <PlaySvg color="white" />
         </button>
       </div>
