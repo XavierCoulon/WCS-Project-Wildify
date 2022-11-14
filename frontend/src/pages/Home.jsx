@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import usePlayerContext from "../Context/PlayerContext";
 import { songsFetcher } from "../utils/axiosTools";
 import TrackList from "../components/TrackList";
-import GenresList from "../components/GenresList";
+import GenresList from "../components/GenresList/index_original";
 
 function Home({ handleCurrentId, setGenreName, setCurrentId }) {
   const { tracks, setTracks } = usePlayerContext();
