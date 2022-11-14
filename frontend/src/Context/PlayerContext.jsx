@@ -5,9 +5,12 @@ const playerContext = createContext(null);
 
 // eslint-disable-next-line react/function-component-definition
 export const PlayerContextProvider = ({ children }) => {
-  const [tracks, setTracks] = useState([]);
+  const [tracksPlayer, setTracksPlayer] = useState([]);
 
-  const memoizedState = useMemo(() => ({ tracks, setTracks }), [tracks]);
+  const memoizedState = useMemo(
+    () => ({ tracksPlayer, setTracksPlayer }),
+    [tracksPlayer]
+  );
 
   return (
     <playerContext.Provider value={memoizedState}>
@@ -18,7 +21,6 @@ export const PlayerContextProvider = ({ children }) => {
 
 const usePlayerContext = () => {
   const context = useContext(playerContext);
-
   return context;
 };
 

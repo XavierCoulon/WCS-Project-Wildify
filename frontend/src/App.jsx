@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { songsFetcher } from "./utils/axiosTools";
 import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
 import Uploads from "./pages/Uploads";
 import Playlists from "./pages/Playlists";
-import PlaylistTracks from "./components/PlaylistsList/PlaylistTracks";
 import Profile from "./pages/Profile";
 import Genres from "./pages/Genres";
 import GenresItem from "./components/GenresList/GenresItem";
@@ -15,27 +13,26 @@ import Navbar from "./components/Layout/Navbar";
 import Sidebar from "./components/Layout/Sidebar";
 import usePlayerContext from "./Context/PlayerContext";
 import Player from "./components/Player";
+import { songsFetcher } from "./utils/axiosTools";
 
 function App() {
-  const [currentId, setCurrentId] = useState("");
+  const [currentId, setCurrentId] = useState();
   const [isMenu, setIsMenu] = useState(false);
-  const { tracks, setTracks } = usePlayerContext();
+  const { tracksPlayer, setTracksPlayer } = usePlayerContext();
+
+  const handleCurrentId = ({ id }) => {
+    setCurrentId(id);
+    console.error("1. Id changed");
+  };
 
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
-      setTracks(res);
+      setTracksPlayer(res.slice(0, 8));
       setCurrentId(res[0].id);
     });
   }, []);
 
-  const handleCurrentId = ({ id }) => {
-    setCurrentId(id);
-    setIsPlaying(true);
-  };
-
-  const handlePLay = () => {
-    setIsPlaying((state) => !state);
-  };
+  if (!tracksPlayer) return <div>Loading ...</div>;
 
   return (
     <>
@@ -48,18 +45,22 @@ function App() {
               path="/"
               element={
                 <Home
-                  tracks={tracks}
                   handleCurrentId={handleCurrentId}
                   currentId={currentId}
                   setCurrentId={setCurrentId}
                 />
               }
             />
-            <Route path="/playlists" element={<Playlists />} />
-            <Route path="/playlists/:id" element={<PlaylistTracks />} />
+            <Route
+              path="/playlists"
+              element={<Playlists handleCurrentId={handleCurrentId} />}
+            />
             <Route path="/uploads" element={<Uploads />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/favourites" element={<Favourites />} />
+            <Route
+              path="/favourites"
+              element={<Favourites handleCurrentId={handleCurrentId} />}
+            />
             <Route
               path="/genres"
               element={<Genres handleCurrentId={handleCurrentId} />}
@@ -70,7 +71,7 @@ function App() {
             />
           </Routes>
         </div>
-        {tracks.length && <Player currentId={currentId} tracks={tracks} />}
+        {tracksPlayer.length && <Player currentId={currentId} />}
       </div>
 
       <ToastContainer autoClose={2000} />

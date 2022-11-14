@@ -6,7 +6,7 @@ import { genresFetcher, songsFetcher } from "../../utils/axiosTools";
 function GenresList({ handleCurrentId }) {
   const [genresList, setGenresList] = useState(null);
   const [currentGenre, setCurrentGenre] = useState(null);
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState(null);
 
   const load = () =>
     genresFetcher.getAll().then((result) => {

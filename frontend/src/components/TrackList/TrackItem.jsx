@@ -12,6 +12,7 @@ function TrackItem({
   picture,
   handleCurrentId,
   onPlaylist,
+  loadPlayer,
 }) {
   const roundedTime = (time) => {
     const result = [];
@@ -74,7 +75,13 @@ function TrackItem({
         >
           ...
         </span>
-        <button type="button" onClick={() => handleCurrentId({ id })}>
+        <button
+          type="button"
+          onClick={() => {
+            loadPlayer();
+            handleCurrentId({ id });
+          }}
+        >
           <PlaySvg color="white" />
         </button>
       </div>
@@ -92,4 +99,5 @@ TrackItem.propTypes = {
   picture: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
   onPlaylist: PropTypes.func.isRequired,
+  loadPlayer: PropTypes.func.isRequired,
 };

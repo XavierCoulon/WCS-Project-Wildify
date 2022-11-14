@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { toast } from "react-toastify";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import TrackList from "../TrackList";
 import { playlistsFetcher } from "../../utils/axiosTools";
 import PlaylistCreation from "./PlaylistCreation";
