@@ -30,6 +30,11 @@ function App() {
 
   const handleCurrentId = ({ id }) => {
     setCurrentId(id);
+    setIsPlaying(true);
+  };
+
+  const handlePLay = () => {
+    setIsPlaying((state) => !state);
   };
 
   return (

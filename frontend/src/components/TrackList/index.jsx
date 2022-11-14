@@ -4,6 +4,7 @@ import PlaylistsModal from "../PlaylistsList/PlaylistsModal";
 import TrackItem from "./TrackItem";
 
 function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
+
   const [playlistsModal, setPlaylistsModal] = useState({
     isActive: false,
     trackId: null,

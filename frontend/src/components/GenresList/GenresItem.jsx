@@ -5,13 +5,15 @@ import { songsFetcher } from "../../utils/axiosTools";
 import TrackList from "../TrackList";
 import usePlayerContext from "../../Context/PlayerContext";
 
-function GenresItem({ handleCurrentId }) {
+
+function GenresItem({ handleCurrentId}) {
+
   const { name } = useParams();
   const { tracks, setTracks } = usePlayerContext();
 
   useEffect(() => {
     songsFetcher.getAllByGenre(name).then((result) => setTracks(result));
-  }, []);
+  }, [currentId]);
 
   if (!tracks) return <div>Loading ...</div>;
   if (tracks.length === 0) return <div>No tracks on this genre...</div>;
@@ -27,4 +29,7 @@ export default GenresItem;
 
 GenresItem.propTypes = {
   handleCurrentId: PropTypes.func.isRequired,
+  tracks: PropTypes.arrayOf().isRequired,
+  setTracks: PropTypes.func.isRequired,
+  currentId: PropTypes.string.isRequired,
 };

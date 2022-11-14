@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import usePlayerContext from "../Context/PlayerContext";
 import AudioControl from "./Player/AudioControl";
 
+
 function Player({ currentId }) {
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
@@ -75,14 +76,13 @@ function Player({ currentId }) {
 
     if (isPlaying) {
       audioRef.current.play();
-      setIsPlaying(true);
       startTimer();
     }
   }, [trackIndex, isPlaying]);
 
   useEffect(() => {
     const newIndex = tracks.findIndex((e) => e.id === currentId);
-
+    // setIsPlaying(true);
     setTrackIndex(newIndex);
   }, [currentId]);
 
@@ -92,6 +92,7 @@ function Player({ currentId }) {
     const s = Math.floor((audioTime2 % 3600) % 60);
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   }
+
 
   const handlePLay = () => {
     setIsPlaying((state) => !state);

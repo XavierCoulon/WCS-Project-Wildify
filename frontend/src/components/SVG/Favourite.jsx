@@ -3,18 +3,19 @@
 
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Favourites from "@pages/Favourites";
 
 const FavouriteIcon = (props) => {
   const [active, setActive] = useState(false);
-  const { currentPage, path } = props;
+  const { path } = props;
 
   useEffect(() => {
-    if (path === currentPage) {
+    if (path === Favourites) {
       setActive(true);
     } else {
       setActive(false);
     }
-  }, [currentPage]);
+  }, [Favourites]);
 
   return (
     <svg
