@@ -48,7 +48,7 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   console.error(tracks);
 
   return (
-    <div className="flex flex-col p-5 ">
+    <div className="flex h-full flex-col p-5 ">
       {tracks.map((e) => (
         <TrackItem
           key={e.id}
