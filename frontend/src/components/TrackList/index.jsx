@@ -48,6 +48,7 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   console.error(tracks);
 
   return (
+
     <div className="flex h-full flex-col p-5 ">
       {tracks.map((e) => (
         <TrackItem
@@ -79,6 +80,7 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
           onClose={handlerUploadPictureCloseModal}
         />
       )}
+
     </div>
   );
 }
