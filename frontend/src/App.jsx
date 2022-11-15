@@ -13,6 +13,7 @@ import Genres from "./pages/Genres";
 import GenresItem from "./components/GenresList/GenresItem";
 import Navbar from "./components/Layout/Navbar";
 import Sidebar from "./components/Layout/Sidebar";
+import storage from "./utils/localStorageTools";
 
 function App() {
   const [tracks, setTracks] = useState([]);
@@ -28,6 +29,7 @@ function App() {
 
   const handleCurrentId = (id) => {
     setCurrentId(id);
+    storage.set("recentlyPlayed", id);
   };
 
   return (

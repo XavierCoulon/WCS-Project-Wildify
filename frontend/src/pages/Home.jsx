@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import Player from "../components/Player";
 import TrackList from "../components/TrackList";
 import GenresList from "../components/GenresList";
+import RecentlyPlayed from "../components/RecentlyPlayed";
 
 function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
   return (
     <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <GenresList setGenreName={setGenreName} />
+      <RecentlyPlayed />
       <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
       {tracks.length && <Player currentId={currentId} tracks={tracks} />}
     </div>
