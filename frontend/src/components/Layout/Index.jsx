@@ -24,8 +24,8 @@ function Layout({ tracksPlayer, currentId }) {
       {isMenu && <Sidebar />}
 
       <div
-        className={`w-full bg-white dark:bg-slate-800 ${
-          width < 760 ? "" : "pl-[200px]"
+        className={`w-full bg-[#F3E8F3] dark:bg-slate-800 ${
+          width < 760 ? "" : "pl-[250px]"
         }  overflow-y-scroll h-full flex`}
       >
         <Outlet />
