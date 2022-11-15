@@ -25,19 +25,19 @@ function Navbar({ setIsMenu, isMenu }) {
   }, [theme]);
 
   return (
-    <div className="bg-slate-500 dark:bg-grayCustom p-6 flex justify-between items-center align-middle w-full h-24">
+    <div className="bg-slate-500 fixed top-0 dark:bg-grayCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}
           className="w-10 h-10 mr-5 md:mr-24 lg:hidden"
-          src="src/assets/burger-icon.png"
+          src="src/assets/burger-icon-cross.png"
           alt="burger"
         />
       ) : (
         <img
           onClick={() => setIsMenu((state) => !state)}
           className="w-10  mr-5 md:mr-24 lg:hidden"
-          src="src/assets/burger-icon-cross.png "
+          src="src/assets/burger-icon.png "
           alt="burger"
         />
       )}
