@@ -7,7 +7,7 @@ import PrevSvg from "./Prev";
 
 function AudioControl({
   isPlaying,
-  handleIsPlaying,
+  onPlayPauseClick,
   onPrevClick,
   onNextClick,
 }) {
@@ -30,7 +30,7 @@ function AudioControl({
           type="button"
           className="pauseBut"
           aria-label="Pause"
-          onClick={handleIsPlaying}
+          onClick={() => onPlayPauseClick(false)}
         >
           <PauseSvg />
         </button>
@@ -39,7 +39,7 @@ function AudioControl({
           type="button"
           className="playBut"
           aria-label="Play"
-          onClick={handleIsPlaying}
+          onClick={() => onPlayPauseClick(true)}
         >
           <PlaySvg />
         </button>
@@ -62,7 +62,7 @@ export default AudioControl;
 
 AudioControl.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
-  handleIsPlaying: PropTypes.func.isRequired,
+  onPlayPauseClick: PropTypes.func.isRequired,
   onPrevClick: PropTypes.func.isRequired,
   onNextClick: PropTypes.func.isRequired,
 };

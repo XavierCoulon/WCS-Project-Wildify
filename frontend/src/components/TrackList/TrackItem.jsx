@@ -12,6 +12,9 @@ function TrackItem({
   picture,
   handleCurrentId,
   onPlaylist,
+  loadPlayer,
+  onUploadPicture,
+  albumId,
 }) {
   const roundedTime = (time) => {
     const result = [];
@@ -42,24 +45,30 @@ function TrackItem({
     onPlaylist(trackId);
   };
 
+  const uploadPicture = (album) => {
+    onUploadPicture(album);
+  };
+
   return (
-    <div className="flex p-2 bg-gray opacity-90 rounded-md my-1 text-white items-center justify-between  flex-row align-middle">
-      <img
-        className="w-10 h-10"
-        src={`${picture === null ? logo : picture}`}
-        alt=""
-      />
-      <h2 className="mx-7">
+    <div className="flex p-2 bg-gradient-to-r from-gray via-gray-500 to-gray bg-gray opacity-90 rounded-md my-1 text-white items-center  flex-row align-middle">
+      <div className="w-1/6">
+        <img
+          className="w-10 h-10"
+          src={`${picture === null ? logo : picture}`}
+          alt=""
+        />
+      </div>
+      <h2 className="mx-7 flex-grow w-1/2">
         {title} - {artist}
       </h2>
 
-      <p className="mx-7">{roundedTime(duration)}</p>
-      <div className="flex justify-between">
+      <p className="mx-7 flex-grow">{roundedTime(duration)}</p>
+      <div className="flex justify-between flex-grow w-2/7">
         <div
-          className={`w-7 h-7 bg-[size:100%] ${
+          className={`w-7 h-7  bg-no-repeat hover:scale-125 ${
             isFavorite
-              ? "bg-[url('https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg')]"
-              : "bg-[url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg')]"
+              ? "bg-[url('https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg')] bg-[size:90%]"
+              : "bg-[url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg')] bg-[size:110%]"
           }`}
           onClick={handleClickFavorite}
           role="button"
@@ -70,11 +79,25 @@ function TrackItem({
         <span
           className="cursor-pointer "
           aria-hidden="true"
+          onClick={() => uploadPicture(albumId)}
+        >
+          ⇩
+        </span>
+        <span
+          className="cursor-pointer "
+          aria-hidden="true"
           onClick={() => playlistHandler(id)}
         >
           ...
         </span>
-        <button type="button" onClick={() => handleCurrentId(id)}>
+        <button
+          className="hover:scale-125"
+          type="button"
+          onClick={() => {
+            loadPlayer();
+            handleCurrentId({ id });
+          }}
+        >
           <PlaySvg color="white" />
         </button>
       </div>
@@ -90,6 +113,9 @@ TrackItem.propTypes = {
   duration: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  albumId: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
   onPlaylist: PropTypes.func.isRequired,
+  loadPlayer: PropTypes.func.isRequired,
+  onUploadPicture: PropTypes.func.isRequired,
 };

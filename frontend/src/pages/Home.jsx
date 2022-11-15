@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Player from "../components/Player";
-import TrackList from "../components/TrackList";
-import GenresList from "../components/GenresList";
-import RecentlyPlayed from "../components/RecentlyPlayed";
 
-function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
+import TrackList from "../components/TrackList";
+import RecentlyPlayed from "../components/RecentlyPlayed";
+import GenresList from "../components/GenresList/index_original";
+import { songsFetcher } from "../utils/axiosTools";
+
+function Home({ handleCurrentId }) {
+  const [tracks, setTracks] = useState([]);
+
+  useEffect(() => {
+    songsFetcher.getAll().then((res) => {
+      setTracks(res.slice(0, 8));
+    });
+  }, []);
+
+  if (!tracks) return <div>Loading ...</div>;
+
+
   return (
-    <div className="bg-white dark:bg-slate-800 w-full h-full text-black dark:text-white">
-      <GenresList setGenreName={setGenreName} />
-      <RecentlyPlayed />
+
+      
+
+    <div className="bg-white dark:bg-slate-800 w-full text-black dark:text-white">
+      <GenresList handleCurrentId={handleCurrentId} />
+<RecentlyPlayed />
       <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-      {tracks.length && <Player currentId={currentId} tracks={tracks} />}
     </div>
   );
 }
@@ -19,8 +33,5 @@ function Home({ tracks, currentId, handleCurrentId, setGenreName }) {
 export default Home;
 
 Home.propTypes = {
-  tracks: PropTypes.arrayOf().isRequired,
-  currentId: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
-  setGenreName: PropTypes.func.isRequired,
 };
