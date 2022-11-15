@@ -14,14 +14,13 @@ import usePlayerContext from "./Context/PlayerContext";
 import { songsFetcher } from "./utils/axiosTools";
 import Layout from "./components/Layout/Index";
 
-
 function App() {
   const [currentId, setCurrentId] = useState();
   const { tracksPlayer, setTracksPlayer } = usePlayerContext();
 
   const handleCurrentId = ({ id }) => {
     setCurrentId(id);
-    console.error("1. Id changed");
+    storage.set("recentlyPlayed", id);
   };
 
   useEffect(() => {
@@ -31,18 +30,10 @@ function App() {
     });
   }, []);
 
-
-  const handleCurrentId = (id) => {
-    setCurrentId(id);
-    storage.set("recentlyPlayed", id);
-  };
-
   if (!tracksPlayer) return <div>Loading ...</div>;
-
 
   return (
     <>
-
       <Routes>
         <Route
           path="/"
@@ -78,7 +69,6 @@ function App() {
           />
         </Route>
       </Routes>
-
 
       <ToastContainer autoClose={2000} />
     </>
