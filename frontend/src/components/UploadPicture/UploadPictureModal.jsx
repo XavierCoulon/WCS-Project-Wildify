@@ -6,7 +6,7 @@ function UploadPictureModal({ albumId, onClose }) {
   return (
     <div className="container flex justify-center mx-auto">
       <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
-        <div className="flex flex-col max-w-sm p-6 bg-white ">
+        <div className="flex flex-col max-w-sm p-6 dark:bg-gray bg-white ">
           <span
             aria-hidden="true"
             onClick={onClose}
