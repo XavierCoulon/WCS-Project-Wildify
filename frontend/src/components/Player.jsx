@@ -14,27 +14,16 @@ function Player({ currentId }) {
   const intervalRef = useRef();
   const isReady = useRef(false);
 
+  const { duration } = audioRef.current || 0;
+
   useEffect(() => {
     const newIndex = tracksPlayer.findIndex((e) => e.id === currentId);
-    // console.log(newIndex);
-    // console.log(currentId);
-    // console.log(tracksPlayer);
     setTrackIndex(newIndex);
-    // setIsPlaying(true);
   }, [currentId]);
 
   useEffect(() => {
     audioRef.current = new Audio(tracksPlayer[trackIndex].link);
   }, []);
-
-  // useEffect(() => {
-  //   console.log(tracksPlayer);
-  //   console.log(tracksPlayer.length);
-  // }, [tracksPlayer]);
-
-  // useEffect(() => {
-  //   console.log(trackIndex);
-  // }, [trackIndex]);
 
   const toPrevTrack = () => {
     if (trackIndex - 1 < 0) {
@@ -153,7 +142,7 @@ function Player({ currentId }) {
             value={trackProgress}
             step="1"
             min="0"
-            max={audioRef.duration}
+            max={duration || `${duration}`}
             className="progess w-full"
             onChange={(e) => onScrub(e.target.value)}
             onMouseUp={onScrubEnd}

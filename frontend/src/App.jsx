@@ -54,7 +54,10 @@ function App() {
             element={<Playlists handleCurrentId={handleCurrentId} />}
           />
           <Route path="/uploads" element={<Uploads />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/profile"
+            element={<Profile handleCurrentId={handleCurrentId} />}
+          />
           <Route
             path="/favourites"
             element={<Favourites handleCurrentId={handleCurrentId} />}

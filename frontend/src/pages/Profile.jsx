@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import RecentlyPlayed from "../components/RecentlyPlayed";
 
 import Upload from "../components/Upload";
 
-function Profile() {
+function Profile({ handleCurrentId }) {
   return (
     <div className="bg-[#F3E8F3] flex flex-col align-middle justify-center  dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <h1
@@ -23,10 +24,14 @@ function Profile() {
       </div>
       <div>
         <Upload />
-        <RecentlyPlayed />
+        <RecentlyPlayed handleCurrentId={handleCurrentId} />
       </div>
     </div>
   );
 }
 
 export default Profile;
+
+Profile.propTypes = {
+  handleCurrentId: PropTypes.func.isRequired,
+};
