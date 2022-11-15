@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import PlaylistsModal from "../PlaylistsList/PlaylistsModal";
+import usePlayerContext from "../../Context/PlayerContext";
 import TrackItem from "./TrackItem";
 
 function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
-
   const [playlistsModal, setPlaylistsModal] = useState({
     isActive: false,
     trackId: null,
   });
+
+  const { tracksPlayer, setTracksPlayer } = usePlayerContext();
 
   const handlerPlaylistModal = (trackId) => {
     setPlaylistsModal({ ...playlistsModal, isActive: true, trackId });
@@ -19,8 +21,17 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   };
 
   const changeTrack = ({ id }) => {
+    console.error("Au changement de track:");
+    console.error(id);
+    console.error(tracksPlayer);
     handleCurrentId({ id });
   };
+
+  const loadPlayer = () => {
+    console.error("Loader chargé");
+    setTracksPlayer(tracks);
+  };
+  console.error(tracks);
 
   return (
     <div className="flex flex-col p-5 ">
@@ -36,6 +47,7 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
           onPlaylist={handlerPlaylistModal}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
+          loadPlayer={loadPlayer}
         />
       ))}
       {/* <PlaylistCreation /> */}

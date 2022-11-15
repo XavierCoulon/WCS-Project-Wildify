@@ -14,7 +14,7 @@ function FavouritesList({ handleCurrentId }) {
       .then((result) =>
         setTracks(result.filter((track) => favourites.includes(track.id)))
       );
-  }, [favourites]);
+  }, []);
 
   if (!tracks) return <div>Loading ...</div>;
 

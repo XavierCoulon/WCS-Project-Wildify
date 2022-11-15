@@ -3,29 +3,54 @@ import React, { useEffect, useRef, useState } from "react";
 import usePlayerContext from "../Context/PlayerContext";
 import AudioControl from "./Player/AudioControl";
 
-
 function Player({ currentId }) {
+  const { tracksPlayer } = usePlayerContext();
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const { tracks } = usePlayerContext();
 
   // Refs
   const audioRef = useRef(null);
-
   const intervalRef = useRef();
+  const isReady = useRef(false);
+
+  useEffect(() => {
+    const newIndex = tracksPlayer.findIndex((e) => e.id === currentId);
+    // console.log(newIndex);
+    // console.log(currentId);
+    // console.log(tracksPlayer);
+    setTrackIndex(newIndex);
+    // setIsPlaying(true);
+  }, [currentId]);
+
+  useEffect(() => {
+    audioRef.current = new Audio(tracksPlayer[trackIndex].link);
+  }, []);
+
+  // useEffect(() => {
+  //   console.log(tracksPlayer);
+  //   console.log(tracksPlayer.length);
+  // }, [tracksPlayer]);
+
+  // useEffect(() => {
+  //   console.log(trackIndex);
+  // }, [trackIndex]);
+
+  const toPrevTrack = () => {
+    if (trackIndex - 1 < 0) {
+      setTrackIndex(tracksPlayer.length - 1);
+    } else {
+      setTrackIndex(trackIndex - 1);
+    }
+  };
 
   const toNextTrack = () => {
-    if (trackIndex < tracks.length - 1) {
+    if (trackIndex < tracksPlayer.length - 1) {
       setTrackIndex(trackIndex + 1);
     } else {
       setTrackIndex(0);
     }
   };
-
-  useEffect(() => {
-    audioRef.current = new Audio(tracks[trackIndex].link);
-  }, []);
 
   const startTimer = () => {
     // On efface les timers en cours
@@ -47,18 +72,10 @@ function Player({ currentId }) {
   };
 
   const onScrubEnd = () => {
-    if (isPlaying) {
+    if (!isPlaying) {
       setIsPlaying(true);
     }
     startTimer();
-  };
-
-  const toPrevTrack = () => {
-    if (trackIndex - 1 < 0) {
-      setTrackIndex(tracks.length - 1);
-    } else {
-      setTrackIndex(trackIndex - 1);
-    }
   };
 
   useEffect(() => {
@@ -71,20 +88,25 @@ function Player({ currentId }) {
 
   useEffect(() => {
     audioRef.current.pause();
-    audioRef.current = new Audio(tracks[trackIndex].link);
+    audioRef.current = new Audio(tracksPlayer[trackIndex].link);
     setTrackProgress(audioRef.current.currentTime);
 
-    if (isPlaying) {
+    if (isReady.current) {
       audioRef.current.play();
+      setIsPlaying(true);
       startTimer();
+    } else {
+      isReady.current = true;
     }
-  }, [trackIndex, isPlaying]);
+  }, [trackIndex]);
 
   useEffect(() => {
-    const newIndex = tracks.findIndex((e) => e.id === currentId);
-    // setIsPlaying(true);
-    setTrackIndex(newIndex);
-  }, [currentId]);
+    // Pause and clean up on unmount
+    return () => {
+      audioRef.current.pause();
+      clearInterval(intervalRef.current);
+    };
+  }, []);
 
   function secondsToHms(audioTime) {
     const audioTime2 = Number(audioTime) || 0;
@@ -93,26 +115,26 @@ function Player({ currentId }) {
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   }
 
-
-  const handlePLay = () => {
-    setIsPlaying((state) => !state);
-  };
-
-  if (audioRef.current === null || tracks.length === 0) return "Loading ...";
+  if (
+    audioRef.current === null ||
+    tracksPlayer.length === 0 ||
+    !tracksPlayer[trackIndex]
+  )
+    return "Loading ...";
 
   return (
     <div className="w-full md:ml-[200px] h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white">
       <div className="flex flex-row space-x-10 justify-self-auto w-full p-5">
         <div className="w-1/9">
           <img
-            src={tracks[trackIndex].album.picture}
+            src={tracksPlayer[trackIndex].album.picture}
             alt="music"
             className="w-12 h-12"
           />
         </div>
         <div className="w-1/5 text-c">
-          <h2>{tracks[trackIndex].title}</h2>
-          <h3>From {tracks[trackIndex].artist.name}</h3>
+          <h2>{tracksPlayer[trackIndex].title}</h2>
+          <h3>From {tracksPlayer[trackIndex].artist.name}</h3>
         </div>
         <div className="w-1/8">
           <p>{secondsToHms(audioRef.current.currentTime)}</p>
@@ -123,7 +145,7 @@ function Player({ currentId }) {
               isPlaying={isPlaying}
               onPrevClick={toPrevTrack}
               onNextClick={toNextTrack}
-              handleIsPlaying={handlePLay}
+              onPlayPauseClick={setIsPlaying}
             />
           </div>
           <input
