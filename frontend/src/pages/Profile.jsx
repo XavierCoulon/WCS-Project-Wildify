@@ -3,7 +3,7 @@ import Upload from "../components/Upload";
 
 function Profile() {
   return (
-    <div className="bg-white flex flex-col align-middle justify-center  dark:bg-slate-800 w-full h-full text-black dark:text-white">
+    <div className="bg-[#F3E8F3] flex flex-col align-middle justify-center  dark:bg-slate-800 w-full h-full text-black dark:text-white">
       <h1
         className="flex
       align-middle justify-center pt-8"

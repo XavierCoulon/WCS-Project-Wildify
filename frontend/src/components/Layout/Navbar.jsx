@@ -25,7 +25,7 @@ function Navbar({ setIsMenu, isMenu }) {
   }, [theme]);
 
   return (
-    <div className="bg-slate-500 fixed top-0 dark:bg-grayCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
+    <div className="bg-[#F3E8F3] fixed top-0 dark:bg-grayCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}
@@ -49,7 +49,7 @@ function Navbar({ setIsMenu, isMenu }) {
       <button
         onClick={handleToggleDarkMode}
         type="button"
-        className="h-8 w-15 rounded-lg px-1 text-white dark:text-black bg-slate-400 dark:bg-slate-300  "
+        className="h-8 w-15 rounded-lg px-1 text-white dark:text-black bg-[#F3E8F3] dark:bg-[#F3E8F3] "
       >
         🌓
       </button>

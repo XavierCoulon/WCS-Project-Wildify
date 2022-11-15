@@ -21,17 +21,16 @@ function CustomNavLink({ path, name, children }) {
       style={({ isActive }) => (isActive ? activeStyle : undefined)}
     >
       {children}
-      <p className="w-[50%] text-right">{name}</p>
+      <p className="w-[50%] ">{name}</p>
     </NavLink>
   );
 }
 
 export default function Sidebar() {
   return (
-
-    <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white bg-slate-500 dark:bg-grayCustom">
+    <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white  bg-[#F3E8F3] dark:bg-grayCustom">
       <ul className="w-full">
-        <li className="border-b w-full border-gray-400 pt-12 pb-4">
+        <li className="border-b w-full border-gray-400  pt-12 pb-4">
           <CustomNavLink name="Home" path="/">
             <HomeIcon currentPage="/" />
           </CustomNavLink>
@@ -62,7 +61,6 @@ export default function Sidebar() {
           </CustomNavLink>
         </li>
       </ul>
-
     </div>
   );
 }
