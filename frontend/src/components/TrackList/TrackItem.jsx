@@ -13,6 +13,8 @@ function TrackItem({
   handleCurrentId,
   onPlaylist,
   loadPlayer,
+  onUploadPicture,
+  albumId,
 }) {
   const roundedTime = (time) => {
     const result = [];
@@ -43,6 +45,10 @@ function TrackItem({
     onPlaylist(trackId);
   };
 
+  const uploadPicture = (album) => {
+    onUploadPicture(album);
+  };
+
   return (
     <div className="flex p-2 bg-gray opacity-90 rounded-md my-1 text-white items-center justify-between  flex-row align-middle">
       <img
@@ -68,6 +74,13 @@ function TrackItem({
           label="favorite"
           aria-hidden="true"
         />
+        <span
+          className="cursor-pointer "
+          aria-hidden="true"
+          onClick={() => uploadPicture(albumId)}
+        >
+          ⇩
+        </span>
         <span
           className="cursor-pointer "
           aria-hidden="true"
@@ -97,7 +110,9 @@ TrackItem.propTypes = {
   duration: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  albumId: PropTypes.string.isRequired,
   handleCurrentId: PropTypes.func.isRequired,
   onPlaylist: PropTypes.func.isRequired,
   loadPlayer: PropTypes.func.isRequired,
+  onUploadPicture: PropTypes.func.isRequired,
 };

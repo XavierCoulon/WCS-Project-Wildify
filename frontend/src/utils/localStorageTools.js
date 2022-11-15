@@ -9,6 +9,7 @@ const storage = {
     } else {
       localStorage.setItem(key, JSON.stringify([value]));
     }
+    window.dispatchEvent(new Event("storage"));
   },
   remove: (key, value) => {
     const values = JSON.parse(localStorage.getItem(key)).filter(
@@ -16,6 +17,7 @@ const storage = {
     );
     localStorage.removeItem(key);
     localStorage.setItem(key, JSON.stringify(values));
+    window.dispatchEvent(new Event("storage"));
   },
 };
 export default storage;

@@ -57,10 +57,10 @@ export const albumsFetcher = {
   getAll: async () => (await axiosInstance.get("/albums")).data,
   getOne: async (id) => (await axiosInstance.get(`/albums/${id}`)).data,
   delete: async (id) => (await axiosInstance.delete(`/albums/${id}`)).data,
-  uploadPicture: async (selectedPicture, id) => {
+  uploadPicture: async (selectedPicture, albumId) => {
     const formData = new FormData();
     formData.append("file", selectedPicture);
-    await axiosInstance.post(`/albums/${id}/picture`, formData, {
+    await axiosInstance.post(`/albums/${albumId}/picture`, formData, {
       headers: { "Content-type": "multipart/form-data" },
     });
   },
