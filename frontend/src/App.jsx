@@ -36,9 +36,9 @@ function App() {
 
   return (
     <>
-      <div className="h-screen w-full flex-col items-center justify-start align-middle flex">
+      <div className="h-full w-full flex-col items-center justify-start align-middle flex">
         <Navbar isMenu={isMenu} setIsMenu={setIsMenu} />
-        <div className="flex w-full h-screen">
+        <div className="flex w-full h-full">
           {!isMenu && <Sidebar />}
           <Routes>
             <Route
