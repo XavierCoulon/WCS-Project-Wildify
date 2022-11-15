@@ -33,7 +33,6 @@ function App() {
 
   return (
     <>
-
       <Routes>
         <Route
           path="/"
@@ -69,8 +68,6 @@ function App() {
           />
         </Route>
       </Routes>
-
-
       <ToastContainer autoClose={2000} />
     </>
   );
