@@ -1,4 +1,6 @@
 import React from "react";
+import RecentlyPlayed from "../components/RecentlyPlayed";
+
 import Upload from "../components/Upload";
 
 function Profile() {
@@ -20,7 +22,8 @@ function Profile() {
         <h2>🔓 EyeOfTheTiger</h2>
       </div>
       <div>
-        <Upload />;
+        <Upload />
+        <RecentlyPlayed />
       </div>
     </div>
   );
