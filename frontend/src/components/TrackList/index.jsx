@@ -3,11 +3,17 @@ import { useState } from "react";
 import PlaylistsModal from "../PlaylistsList/PlaylistsModal";
 import usePlayerContext from "../../Context/PlayerContext";
 import TrackItem from "./TrackItem";
+import UploadPictureModal from "../UploadPicture/UploadPictureModal";
 
 function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   const [playlistsModal, setPlaylistsModal] = useState({
     isActive: false,
     trackId: null,
+  });
+
+  const [uploadPictureModal, setUploadPictureModal] = useState({
+    isActive: false,
+    albumId: null,
   });
 
   const { tracksPlayer, setTracksPlayer } = usePlayerContext();
@@ -18,6 +24,14 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
 
   const handlerCloseModal = () => {
     setPlaylistsModal({ ...playlistsModal, isActive: false, trackId: null });
+  };
+
+  const handlerUploadPictureModal = (albumId) => {
+    setUploadPictureModal({ isActive: true, albumId });
+  };
+
+  const handlerUploadPictureCloseModal = () => {
+    setUploadPictureModal({ isActive: false, albumId: null });
   };
 
   const changeTrack = ({ id }) => {
@@ -48,6 +62,8 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           loadPlayer={loadPlayer}
+          onUploadPicture={handlerUploadPictureModal}
+          albumId={e.albumId}
         />
       ))}
       {/* <PlaylistCreation /> */}
@@ -55,6 +71,12 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
         <PlaylistsModal
           trackId={playlistsModal.trackId}
           onClose={handlerCloseModal}
+        />
+      )}
+      {uploadPictureModal.isActive && (
+        <UploadPictureModal
+          albumId={uploadPictureModal.albumId}
+          onClose={handlerUploadPictureCloseModal}
         />
       )}
     </div>
