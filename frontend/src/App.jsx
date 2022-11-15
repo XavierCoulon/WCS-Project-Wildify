@@ -9,9 +9,11 @@ import Playlists from "./pages/Playlists";
 import Profile from "./pages/Profile";
 import Genres from "./pages/Genres";
 import GenresItem from "./components/GenresList/GenresItem";
+import storage from "./utils/localStorageTools";
 import usePlayerContext from "./Context/PlayerContext";
 import { songsFetcher } from "./utils/axiosTools";
 import Layout from "./components/Layout/Index";
+
 
 function App() {
   const [currentId, setCurrentId] = useState();
@@ -29,7 +31,14 @@ function App() {
     });
   }, []);
 
+
+  const handleCurrentId = (id) => {
+    setCurrentId(id);
+    storage.set("recentlyPlayed", id);
+  };
+
   if (!tracksPlayer) return <div>Loading ...</div>;
+
 
   return (
     <>
