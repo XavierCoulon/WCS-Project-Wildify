@@ -17,14 +17,10 @@ function Home({ handleCurrentId }) {
 
   if (!tracks) return <div>Loading ...</div>;
 
-
   return (
-
-      
-
     <div className="bg-white dark:bg-slate-800 w-full text-black dark:text-white">
       <GenresList handleCurrentId={handleCurrentId} />
-<RecentlyPlayed />
+      <RecentlyPlayed handleCurrentId={handleCurrentId} />
       <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
     </div>
   );

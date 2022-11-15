@@ -16,7 +16,7 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
     albumId: null,
   });
 
-  const { tracksPlayer, setTracksPlayer } = usePlayerContext();
+  const { setTracksPlayer } = usePlayerContext();
 
   const handlerPlaylistModal = (trackId) => {
     setPlaylistsModal({ ...playlistsModal, isActive: true, trackId });
@@ -35,9 +35,6 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   };
 
   const changeTrack = ({ id }) => {
-    console.error("Au changement de track:");
-    console.error(id);
-    console.error(tracksPlayer);
     handleCurrentId({ id });
   };
 
@@ -45,10 +42,8 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
     console.error("Loader chargé");
     setTracksPlayer(tracks);
   };
-  console.error(tracks);
 
   return (
-
     <div className="flex h-full flex-col p-5 ">
       {tracks.map((e) => (
         <TrackItem
@@ -67,7 +62,6 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
           albumId={e.albumId}
         />
       ))}
-      {/* <PlaylistCreation /> */}
       {playlistsModal.isActive && (
         <PlaylistsModal
           trackId={playlistsModal.trackId}
@@ -80,7 +74,6 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
           onClose={handlerUploadPictureCloseModal}
         />
       )}
-
     </div>
   );
 }

@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import FavouriteIcon from "@components/SVG/Favourite";
-import HomeIcon from "@components/SVG/HomeIcon";
+import FavouriteIcon from "../SVG/Favourite";
+import HomeIcon from "../SVG/HomeIcon";
 import PlaylistsIcon from "../SVG/PlaylistsIcon";
 import ProfileIcon from "../SVG/ProfileIcon";
 import UploadsIcon from "../SVG/UploadsIcon";
@@ -28,7 +28,6 @@ function CustomNavLink({ path, name, children }) {
 
 export default function Sidebar() {
   return (
-
     <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white bg-slate-500 dark:bg-grayCustom">
       <ul className="w-full">
         <li className="border-b w-full border-gray-400 pt-12 pb-4">
@@ -62,7 +61,6 @@ export default function Sidebar() {
           </CustomNavLink>
         </li>
       </ul>
-
     </div>
   );
 }
