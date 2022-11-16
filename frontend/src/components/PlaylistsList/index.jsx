@@ -39,7 +39,7 @@ function PlaylistsList({ handleCurrentId }) {
 
   return (
     <>
-      <div className="grid grid-cols-4 p-5">
+      <div className="grid md:grid-cols-4 sm:grid-cols-2 lg:grid-cols-5 p-5">
         {list.map((playlist) => (
           <div className="flex justify-between bg-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 ">
             <span

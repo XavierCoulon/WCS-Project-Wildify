@@ -1,42 +1,25 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { ThemeContext } from "../../Context/ThemeContext";
 
 function Navbar({ setIsMenu, isMenu }) {
-  const [theme, setTheme] = useState("dark");
-
-  const handleToggleDarkMode = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    }
-    if (theme === "light") {
-      setTheme("dark");
-    }
-  };
-
-  useEffect(() => {
-    if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-    }
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    }
-  }, [theme]);
+  const { handleToggleDarkMode } = useContext(ThemeContext);
 
   return (
     <div className="bg-[#F3E8F3] fixed top-0 dark:bg-grayCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}
-          className="w-10 h-10 mr-5 md:mr-24 lg:hidden"
+          className="w-10 h-10 mr-5 md:mr-24 md:hidden"
           src="src/assets/burger-icon-cross.png"
           alt="burger"
         />
       ) : (
         <img
           onClick={() => setIsMenu((state) => !state)}
-          className="w-10  mr-5 md:mr-24 lg:hidden"
+          className="w-10  mr-5 md:mr-24 md:hidden"
           src="src/assets/burger-icon.png "
           alt="burger"
         />

@@ -12,6 +12,7 @@ import GenresItem from "./components/GenresList/GenresItem";
 import usePlayerContext from "./Context/PlayerContext";
 import { songsFetcher } from "./utils/axiosTools";
 import Layout from "./components/Layout/Index";
+import ThemeContextProvider from "./Context/ThemeContext";
 
 function App() {
   const [currentId, setCurrentId] = useState();
@@ -33,41 +34,45 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={<Layout tracksPlayer={tracksPlayer} currentId={currentId} />}
-        >
+      <ThemeContextProvider>
+        <Routes>
           <Route
             path="/"
             element={
-              <Home
-                handleCurrentId={handleCurrentId}
-                currentId={currentId}
-                setCurrentId={setCurrentId}
-              />
+              <Layout tracksPlayer={tracksPlayer} currentId={currentId} />
             }
-          />
-          <Route
-            path="/playlists"
-            element={<Playlists handleCurrentId={handleCurrentId} />}
-          />
-          <Route path="/uploads" element={<Uploads />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route
-            path="/favourites"
-            element={<Favourites handleCurrentId={handleCurrentId} />}
-          />
-          <Route
-            path="/genres"
-            element={<Genres handleCurrentId={handleCurrentId} />}
-          />
-          <Route
-            path="/genres/:name"
-            element={<GenresItem handleCurrentId={handleCurrentId} />}
-          />
-        </Route>
-      </Routes>
+          >
+            <Route
+              path="/"
+              element={
+                <Home
+                  handleCurrentId={handleCurrentId}
+                  currentId={currentId}
+                  setCurrentId={setCurrentId}
+                />
+              }
+            />
+            <Route
+              path="/playlists"
+              element={<Playlists handleCurrentId={handleCurrentId} />}
+            />
+            <Route path="/uploads" element={<Uploads />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/favourites"
+              element={<Favourites handleCurrentId={handleCurrentId} />}
+            />
+            <Route
+              path="/genres"
+              element={<Genres handleCurrentId={handleCurrentId} />}
+            />
+            <Route
+              path="/genres/:name"
+              element={<GenresItem handleCurrentId={handleCurrentId} />}
+            />
+          </Route>
+        </Routes>
+      </ThemeContextProvider>
       <ToastContainer autoClose={2000} />
     </>
   );
