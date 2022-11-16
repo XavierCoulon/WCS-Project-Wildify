@@ -1,29 +1,66 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Link, useLocation } from "react-router-dom";
 import { genresFetcher } from "../../utils/axiosTools";
 
-function GenresList() {
+function GenresList({ showGenres, setShowGenres }) {
   const [genres, setGenres] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     genresFetcher.getAll().then((result) => setGenres(result));
+  }, [showGenres]);
+
+  useEffect(() => {
+    if (location.pathname === "/genres") {
+      setShowGenres(true);
+    }
   }, []);
 
   if (!genres) return <div>Loading ...</div>;
 
   return (
-    <div className="grid lg:grid-cols-5 md:grid-cols-4 p-5 grid-cols-2">
-      {genres.map((genre) => (
-        <Link
-          key={genre.id}
-          className="bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 hover:scale-125 "
-          to={`/genres/${genre.name}`}
-        >
-          {genre.name}
-        </Link>
-      ))}
+    <div className="h-full w-full mb-16">
+      <div className="flex flex-wrap">
+        {showGenres ? (
+          genres.map((genre) => (
+            <Link
+              key={genre.id}
+              className=" flex justify-center  items-center h-20 w-40 bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white text-center p-1 m-1 hover:scale-125 "
+              to={`/genres/${genre.name}`}
+            >
+              {genre.name}
+            </Link>
+          ))
+        ) : (
+          <div className="w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-2">
+            {genres.slice(0, 3).map((genre) => (
+              <div>
+                <Link
+                  key={genre.id}
+                  className=" flex justify-center  items-center h-28  bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white text-center p-1 m-1 hover:scale-125 "
+                  to={`/genres/${genre.name}`}
+                >
+                  {genre.name}
+                </Link>
+              </div>
+            ))}
+            <button
+              type="button"
+              className="h-28 bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 hover:scale-125 "
+            >
+              <Link to="/genres">Voir tout...</Link>
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 export default GenresList;
+
+GenresList.propTypes = {
+  setShowGenres: PropTypes.func.isRequired,
+  showGenres: PropTypes.bool.isRequired,
+};

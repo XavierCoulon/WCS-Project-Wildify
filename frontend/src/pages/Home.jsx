@@ -5,6 +5,8 @@ import TrackList from "../components/TrackList";
 import RecentlyPlayed from "../components/RecentlyPlayed";
 import GenresList from "../components/GenresList/index_original";
 import { songsFetcher } from "../utils/axiosTools";
+import WaveImg from "../utils/waveImg";
+import wave from "../assets/wave.png";
 
 function Home({ handleCurrentId }) {
   const [tracks, setTracks] = useState([]);
@@ -18,10 +20,26 @@ function Home({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <div className="bg-[#F3E8F3] dark:bg-slate-800 w-full text-black dark:text-white">
-      <GenresList handleCurrentId={handleCurrentId} />
-      <RecentlyPlayed handleCurrentId={handleCurrentId} />
-      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+    <div className="bg-[#F3E8F3] dark:bg-slate-800 h-full w-full text-black dark:text-white ">
+      <div className="flex justify-center">
+        <img
+          className="w-5/6 h-full mt-5 mb-0 absolute opacity-10"
+          src={wave}
+          alt="wave de fond musicale"
+        />
+        <WaveImg />
+      </div>
+      <div>
+        <h2>Genres</h2>
+        <GenresList handleCurrentId={handleCurrentId} />
+      </div>
+      <div>
+        <RecentlyPlayed handleCurrentId={handleCurrentId} />
+      </div>
+      <div>
+        <h2>Aléatoires</h2>
+        <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+      </div>
     </div>
   );
 }
