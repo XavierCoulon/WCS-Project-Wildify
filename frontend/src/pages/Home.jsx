@@ -20,16 +20,15 @@ function Home({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <div className="bg-white dark:bg-slate-800 w-full text-black dark:text-white">
+    <div className="bg-[#F3E8F3] dark:bg-slate-800 w-full text-black dark:text-white">
       <div className="flex justify-center">
         <img
-          className="w-5/6 h-full mx-14 mt-5 absolute opacity-25"
+          className="w-5/6 h-full mx-14 mt-5 mb-0 absolute opacity-25"
           src={wave}
           alt="wave de fond musicale"
         />
         <WaveImg />
       </div>
-
       <GenresList handleCurrentId={handleCurrentId} />
       <RecentlyPlayed handleCurrentId={handleCurrentId} />
       <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
