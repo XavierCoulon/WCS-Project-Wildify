@@ -19,7 +19,7 @@ function Layout({ tracksPlayer, currentId }) {
   }, [width]);
 
   return (
-    <div className="w-screen pt-[96px] h-screen flex flex-col">
+    <div className="w-screen pt-[96px] h-full flex flex-col">
       <Navbar setIsMenu={setIsMenu} isMenu={isMenu} />
       {isMenu && <Sidebar />}
 
