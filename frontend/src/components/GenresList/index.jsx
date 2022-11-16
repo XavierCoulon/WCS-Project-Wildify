@@ -34,6 +34,7 @@ function GenresList({ handleCurrentId }) {
       <div className="grid grid-cols-4 p-5">
         {genresList.map((genre) => (
           <span
+            key={genre.id}
             className="cursor-pointer bg-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 "
             aria-hidden="true"
             onClick={() => {
