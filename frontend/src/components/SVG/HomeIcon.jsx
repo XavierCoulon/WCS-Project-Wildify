@@ -3,10 +3,20 @@
 
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../../Context/ThemeContext";
 
 const HomeIcon = (props) => {
   const { pathname } = useLocation();
   const { currentPage } = props;
+  const { theme } = useContext(ThemeContext);
+
+  const getFillColor = () => {
+    if (theme === "dark") {
+      return currentPage === pathname ? "yellow" : "white";
+    }
+    return currentPage === pathname ? "red" : "black";
+  };
 
   return (
     <svg
@@ -19,7 +29,7 @@ const HomeIcon = (props) => {
       <g filter="url(#a)">
         <path
           d="M22.693 37.538v-3.68c0-.932.731-1.69 1.638-1.696h3.328c.91 0 1.648.76 1.648 1.696v3.67c0 .809.635 1.466 1.42 1.472h2.271a3.935 3.935 0 0 0 2.83-1.2A4.168 4.168 0 0 0 37 34.894V24.439c0-.881-.38-1.717-1.037-2.283L28.25 15.81a3.51 3.51 0 0 0-4.583.086l-7.547 6.261A3.006 3.006 0 0 0 15 24.44v10.443C15 37.156 16.792 39 19.002 39h2.219a1.4 1.4 0 0 0 1.01-.424c.27-.275.42-.648.42-1.038h.042Z"
-          fill={currentPage === pathname ? "yellow" : "white"}
+          fill={getFillColor()}
         />
       </g>
       <defs>

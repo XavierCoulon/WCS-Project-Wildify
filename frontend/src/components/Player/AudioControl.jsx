@@ -12,7 +12,7 @@ function AudioControl({
   onNextClick,
 }) {
   return (
-    <div className="audioControl">
+    <div className="w-full items-center flex justify-center">
       {/* Bouton prev */}
       <button
         type="button"

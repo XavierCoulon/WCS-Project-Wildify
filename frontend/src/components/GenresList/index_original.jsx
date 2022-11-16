@@ -12,7 +12,7 @@ function GenresList() {
   if (!genres) return <div>Loading ...</div>;
 
   return (
-    <div className="grid grid-cols-4 p-5">
+    <div className="grid lg:grid-cols-5 md:grid-cols-4 p-5 grid-cols-2">
       {genres.map((genre) => (
         <Link
           key={genre.id}

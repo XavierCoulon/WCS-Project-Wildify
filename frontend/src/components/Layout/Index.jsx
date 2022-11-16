@@ -11,7 +11,7 @@ function Layout({ tracksPlayer, currentId }) {
   const { width } = useWindowSize();
 
   useEffect(() => {
-    if (width < 760) {
+    if (width < 768) {
       setIsMenu(false);
     } else {
       setIsMenu(true);
@@ -21,11 +21,11 @@ function Layout({ tracksPlayer, currentId }) {
   return (
     <div className="w-screen pt-[96px] h-screen flex flex-col">
       <Navbar setIsMenu={setIsMenu} isMenu={isMenu} />
-      {isMenu && <Sidebar />}
+      {isMenu && <Sidebar setIsMenu={setIsMenu} isMenu={isMenu} />}
 
       <div
         className={`w-full bg-[#F3E8F3] dark:bg-slate-800 ${
-          width < 760 ? "" : "pl-[250px]"
+          width < 768 ? "" : "pl-[250px]"
         }  overflow-y-scroll h-full flex`}
       >
         <Outlet />
