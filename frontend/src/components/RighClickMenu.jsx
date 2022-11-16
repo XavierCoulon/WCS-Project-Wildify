@@ -5,9 +5,8 @@ import { createPortal } from "react-dom";
 import useOnClickOutside from "@jidayyy/useonclickoutside";
 import { songsFetcher } from "../utils/axiosTools";
 
-function RighClickMenu({ x, y, showMenu, id }) {
+function RighClickMenu({ x, y, showMenu, id, reloadTrackList }) {
   const ref = useRef();
-
   useOnClickOutside(ref, () => !showMenu);
 
   const handlerDeleteTrack = async (trackId) => {
@@ -22,6 +21,7 @@ function RighClickMenu({ x, y, showMenu, id }) {
           autoClose: 2000,
         })
       )
+      .then(() => reloadTrackList())
       .catch(() => {
         toast.update(modale, {
           render: "Oupssss",
@@ -69,4 +69,5 @@ RighClickMenu.propTypes = {
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
   showMenu: PropTypes.bool.isRequired,
+  reloadTrackList: PropTypes.func.isRequired,
 };

@@ -5,7 +5,13 @@ import usePlayerContext from "../../Context/PlayerContext";
 import TrackItem from "./TrackItem";
 import UploadPictureModal from "../UploadPicture/UploadPictureModal";
 
-function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
+function TrackList({
+  handleCurrentId,
+  tracks,
+  isPlaying,
+  setIsPlaying,
+  reloadTrackList,
+}) {
   const [playlistsModal, setPlaylistsModal] = useState({
     isActive: false,
     trackId: null,
@@ -60,6 +66,7 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
           loadPlayer={loadPlayer}
           onUploadPicture={handlerUploadPictureModal}
           albumId={e.albumId}
+          reloadTrackList={reloadTrackList}
         />
       ))}
       {playlistsModal.isActive && (
@@ -83,6 +90,7 @@ TrackList.propTypes = {
   handleCurrentId: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
+  reloadTrackList: PropTypes.func.isRequired,
 };
 
 export default TrackList;

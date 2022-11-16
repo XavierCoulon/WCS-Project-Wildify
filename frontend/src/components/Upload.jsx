@@ -9,12 +9,17 @@ function Upload({ handleCurrentId }) {
   const [selectedFile, setSelectedFile] = useState();
   const inputRef = useRef("");
   const [tracks, setTracks] = useState([]);
+  const [refresh, setRefresh] = useState(0);
+
+  const reloadTrackList = () => {
+    setRefresh((previsousState) => previsousState + 1);
+  };
 
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
       setTracks(res);
     });
-  }, []);
+  }, [refresh]);
 
   const handleDrag = (e) => {
     e.preventDefault();
@@ -126,7 +131,11 @@ function Upload({ handleCurrentId }) {
           />
         )}
       </form>
-      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+      <TrackList
+        tracks={tracks}
+        handleCurrentId={handleCurrentId}
+        reloadTrackList={reloadTrackList}
+      />
     </div>
   );
 }

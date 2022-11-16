@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
+import storage from "../utils/localStorageTools";
 import usePlayerContext from "../Context/PlayerContext";
 import AudioControl from "./Player/AudioControl";
 
@@ -39,6 +40,7 @@ function Player({ currentId }) {
     } else {
       setTrackIndex(0);
     }
+    storage.set("recentlyPlayed", tracksPlayer[trackIndex].id);
   };
 
   const startTimer = () => {

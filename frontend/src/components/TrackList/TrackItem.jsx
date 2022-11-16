@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import RighClickMenu from "../RighClickMenu";
 import PlaySvg from "../Player/Play";
 import storage from "../../utils/localStorageTools";
@@ -16,6 +17,7 @@ function TrackItem({
   loadPlayer,
   onUploadPicture,
   albumId,
+  reloadTrackList,
 }) {
   const roundedTime = (time) => {
     const result = [];
@@ -29,6 +31,7 @@ function TrackItem({
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation();
 
   const handleContextMenu = (e) => {
     e.preventDefault();
@@ -127,7 +130,15 @@ function TrackItem({
           <PlaySvg color="white" />
         </button>
       </div>
-      <RighClickMenu x={x} y={y} showMenu={showMenu} id={id} />
+      {location.pathname === "/uploads" && (
+        <RighClickMenu
+          x={x}
+          y={y}
+          showMenu={showMenu}
+          id={id}
+          reloadTrackList={reloadTrackList}
+        />
+      )}
     </div>
   );
 }
@@ -145,4 +156,5 @@ TrackItem.propTypes = {
   onPlaylist: PropTypes.func.isRequired,
   loadPlayer: PropTypes.func.isRequired,
   onUploadPicture: PropTypes.func.isRequired,
+  reloadTrackList: PropTypes.func.isRequired,
 };
