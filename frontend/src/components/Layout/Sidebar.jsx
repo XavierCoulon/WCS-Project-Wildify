@@ -3,9 +3,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import FavouriteIcon from "@components/SVG/Favourite";
-import HomeIcon from "@components/SVG/HomeIcon";
 import { useContext } from "react";
+import FavouriteIcon from "../SVG/Favourite";
+import HomeIcon from "../SVG/HomeIcon";
 import PlaylistsIcon from "../SVG/PlaylistsIcon";
 import ProfileIcon from "../SVG/ProfileIcon";
 import UploadsIcon from "../SVG/UploadsIcon";
