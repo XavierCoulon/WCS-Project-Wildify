@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { playlistsFetcher } from "../../utils/axiosTools";
 
 function PlaylistItem({ id, title, trackId }) {
+  const [assigned, setAssigned] = useState(false);
+
   const assignTrack = () => {
     playlistsFetcher
       .assignTrack(id, { songIds: [trackId] })
@@ -12,16 +14,22 @@ function PlaylistItem({ id, title, trackId }) {
         toast.error("Oupssss");
         console.error(error);
       });
+    setAssigned(true);
   };
 
   return (
-    <div className="flex items-center m-1">
-      <div className="w-1/2">
+    <div className="flex items-center mb-2">
+      <div className="w-1/2 flex items-start">
         <li key={id}>{title}</li>
       </div>
       <div className="w-1/2">
-        <button type="button" label="Add" onClick={assignTrack}>
-          Assign
+        <button
+          className="ml-20"
+          type="button"
+          label="Add"
+          onClick={assignTrack}
+        >
+          {assigned ? `🗸` : "Add"}
         </button>
       </div>
     </div>
