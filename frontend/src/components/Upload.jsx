@@ -1,11 +1,20 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { songsFetcher } from "../utils/axiosTools";
+import TrackList from "./TrackList";
 
-function Upload() {
+function Upload({ handleCurrentId }) {
   const [dragActive, setDragActive] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
   const inputRef = useRef("");
+  const [tracks, setTracks] = useState([]);
+
+  useEffect(() => {
+    songsFetcher.getAll().then((res) => {
+      setTracks(res);
+    });
+  }, []);
 
   const handleDrag = (e) => {
     e.preventDefault();
@@ -66,6 +75,8 @@ function Upload() {
       });
   };
 
+  if (!tracks) return <div>Loading ...</div>;
+
   return (
     <div className="flex flex-col justify-center items-center">
       <form
@@ -115,8 +126,13 @@ function Upload() {
           />
         )}
       </form>
+      <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
     </div>
   );
 }
 
 export default Upload;
+
+Upload.propTypes = {
+  handleCurrentId: PropTypes.func.isRequired,
+};

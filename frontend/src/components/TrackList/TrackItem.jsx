@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import RighClickMenu from "../RighClickMenu";
 import PlaySvg from "../Player/Play";
 import storage from "../../utils/localStorageTools";
 import logo from "../../assets/logo.png";
@@ -25,6 +26,27 @@ function TrackItem({
   };
 
   const [isFavorite, setIsFavorite] = useState(false);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+    setX(e.pageX);
+    setY(e.pageY);
+    setShowMenu(true);
+  };
+
+  const handleClick = () => {
+    if (showMenu) setShowMenu(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  });
 
   useEffect(() => {
     if (storage.get("favorite") && storage.get("favorite").includes(id))
@@ -50,7 +72,12 @@ function TrackItem({
   };
 
   return (
-    <div className="flex p-2 bg-gradient-to-r from-gray via-gray-500 to-gray bg-gray opacity-90 rounded-md my-1 text-white items-center  flex-row align-middle">
+    <div
+      onContextMenu={(event) => handleContextMenu(event)}
+      className="flex p-2 bg-gradient-to-r from-gray
+      via-gray-500 to-gray bg-gray opacity-90 rounded-md my-1 text-white
+      items-center flex-row align-middle"
+    >
       <div className="w-1/6">
         <img
           className="w-10 h-10"
@@ -61,7 +88,6 @@ function TrackItem({
       <h2 className="mx-7 flex-grow w-1/2">
         {title} - {artist}
       </h2>
-
       <p className="mx-7 flex-grow">{roundedTime(duration)}</p>
       <div className="flex justify-between flex-grow w-2/7">
         <div
@@ -101,6 +127,7 @@ function TrackItem({
           <PlaySvg color="white" />
         </button>
       </div>
+      <RighClickMenu x={x} y={y} showMenu={showMenu} id={id} />
     </div>
   );
 }

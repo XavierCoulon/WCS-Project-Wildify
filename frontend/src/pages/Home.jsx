@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 import TrackList from "../components/TrackList";
 import RecentlyPlayed from "../components/RecentlyPlayed";
 import GenresList from "../components/GenresList/index_original";
