@@ -72,7 +72,6 @@ function App() {
           />
         </Route>
       </Routes>
-      {/* <RighClickMenu x={x} y={y} showMenu={showMenu} /> */}
       <ToastContainer autoClose={2000} />
     </>
   );
