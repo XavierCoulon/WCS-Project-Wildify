@@ -115,23 +115,25 @@ function Player({ currentId }) {
 
   return (
     <div className="w-screen z-50  h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white m-0">
-      <div className="flex flex-row space-x-10 justify-self-auto w-full p-5">
-        <div className="w-1/9">
+      <div className="flex flex-row  justify-between align-middle items-center w-full py-5 px-2 md:p-5">
+        <div className="w-1/9 hidden md:flex">
           <img
             src={tracksPlayer[trackIndex].album.picture}
             alt="music"
             className="w-12 h-12"
           />
         </div>
-        <div className="w-1/5 text-c">
-          <h2>{tracksPlayer[trackIndex].title}</h2>
-          <h3>From {tracksPlayer[trackIndex].artist.name}</h3>
+        <div className="md:w-1/5 w-2/5 hidden md:flex text-c">
+          <h2 className="truncate">{tracksPlayer[trackIndex].title}</h2>
+          <h3 className="truncate">
+            From {tracksPlayer[trackIndex].artist.name}
+          </h3>
         </div>
-        <div className="w-1/8">
-          <p>{secondsToHms(audioRef.current.currentTime)}</p>
-        </div>
-        <div className="w-2/6">
-          <div className="flex justify-center">
+
+        <p className="w-1/8">{secondsToHms(audioRef.current.currentTime)}</p>
+
+        <div className=" w-full mx-5 justify-center flex items-center flex-col md:w-2/6">
+          <div className="flex w-full items-center justify-center">
             <AudioControl
               isPlaying={isPlaying}
               onPrevClick={toPrevTrack}
@@ -145,15 +147,14 @@ function Player({ currentId }) {
             step="1"
             min="0"
             max={duration || `${duration}`}
-            className="progess w-full"
+            className="progess my-2 w-full"
             onChange={(e) => onScrub(e.target.value)}
             onMouseUp={onScrubEnd}
             onKeyUp={onScrubEnd}
           />
         </div>
-        <div className="w-1/8">
-          <p>{secondsToHms(audioRef.current.duration)}</p>
-        </div>
+
+        <p className="w-1/8">{secondsToHms(audioRef.current.duration)}</p>
       </div>
     </div>
   );

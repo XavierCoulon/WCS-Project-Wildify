@@ -50,6 +50,7 @@ function TrackList({
   };
 
   return (
+
     <div className="flex h-full flex-col p-5 ">
       {tracks.map((e) => (
         <TrackItem
@@ -81,6 +82,8 @@ function TrackList({
           onClose={handlerUploadPictureCloseModal}
         />
       )}
+      </div>
+      <div className="h-24" />
     </div>
   );
 }
