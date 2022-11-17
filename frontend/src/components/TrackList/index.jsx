@@ -40,12 +40,7 @@ function TrackList({
     setUploadPictureModal({ isActive: false, albumId: null });
   };
 
-  // const changeTrack = ({ id }) => {
-  //   handleCurrentId({ id });
-  // };
-
   const loadPlayer = () => {
-    console.error("Loader chargé");
     setTracksPlayer(tracks);
   };
 

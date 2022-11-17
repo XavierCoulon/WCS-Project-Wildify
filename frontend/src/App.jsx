@@ -13,6 +13,7 @@ import usePlayerContext from "./Context/PlayerContext";
 import { songsFetcher } from "./utils/axiosTools";
 import Layout from "./components/Layout/Index";
 import ThemeContextProvider from "./Context/ThemeContext";
+import Uploads from "./pages/Uploads";
 
 function App() {
   const [currentId, setCurrentId] = useState();
