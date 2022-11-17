@@ -8,7 +8,7 @@ import FavouriteIcon from "../SVG/Favourite";
 import HomeIcon from "../SVG/HomeIcon";
 import PlaylistsIcon from "../SVG/PlaylistsIcon";
 import ProfileIcon from "../SVG/ProfileIcon";
-import UploadsIcon from "../SVG/UploadsIcon";
+
 import GenreIcon from "../SVG/GenreIcon";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../Context/ThemeContext";
@@ -81,14 +81,7 @@ export default function Sidebar({ setIsMenu }) {
             <ProfileIcon currentPage="/profile" />
           </CustomNavLink>
         </li>
-        <li
-          onClick={handleClick}
-          className="border-b w-full border-gray-400 py-4"
-        >
-          <CustomNavLink name="Uploads" path="/uploads">
-            <UploadsIcon currentPage="/uploads" />
-          </CustomNavLink>
-        </li>
+
         <li onClick={handleClick} className="py-4 w-full">
           <CustomNavLink name="Genres" path="/genres">
             <GenreIcon currentPage="/genres" />
