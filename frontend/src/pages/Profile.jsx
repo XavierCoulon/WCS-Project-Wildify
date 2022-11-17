@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import RecentlyPlayed from "../components/RecentlyPlayed";
-import Upload from "../components/Upload";
 import rousse from "../assets/Rousse.jpg";
 
 function Profile({ handleCurrentId }) {
@@ -71,7 +70,7 @@ function Profile({ handleCurrentId }) {
         </div>
 
         <div>
-          <Upload handleCurrentId={handleCurrentId} />
+
           <RecentlyPlayed handleCurrentId={handleCurrentId} />
         </div>
       </div>
