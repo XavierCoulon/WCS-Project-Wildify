@@ -3,9 +3,8 @@ import * as React from "react";
 function WaveImg() {
   return (
     <svg
-      className="ml-96 scale-150 absolute"
-      width={900}
-      height={306}
+      className=" scale-150 absolute"
+      height={10}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
