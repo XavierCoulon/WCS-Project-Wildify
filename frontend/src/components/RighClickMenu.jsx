@@ -34,8 +34,8 @@ function RighClickMenu({ x, y, showMenu, id, reloadTrackList }) {
 
   const style = () => {
     return {
-      height: 200,
-      width: 150,
+      height: 40,
+      width: 40,
       borderRadius: 10,
       backgroundColor: "white",
       color: "black",
