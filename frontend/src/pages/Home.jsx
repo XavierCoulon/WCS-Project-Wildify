@@ -26,7 +26,7 @@ function Home({ handleCurrentId }) {
         <RecentlyPlayed handleCurrentId={handleCurrentId} />
       </div>
       <div>
-        <h2>Aléatoires</h2>
+        <h2>Shuffle</h2>
         <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
       </div>
     </div>

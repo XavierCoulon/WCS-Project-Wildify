@@ -22,7 +22,7 @@ function RecentlyPlayed({ handleCurrentId }) {
     <div>
       {recentlyplayed && (
         <div className="text-black dark:text-white">
-          <p>Récemment écoutés</p>
+          <p>Recently Played</p>
           <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
         </div>
       )}

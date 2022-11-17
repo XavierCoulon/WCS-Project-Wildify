@@ -20,7 +20,7 @@ function Favourites({ handleCurrentId }) {
           alt="favorite theme"
         />
         <h1 className="lg:text-5xl font-bold mt-10 lg:ml-20 ml-4 font-mono">
-          Favoris
+          Favourites
         </h1>
       </div>
       <div className="mt-5">
