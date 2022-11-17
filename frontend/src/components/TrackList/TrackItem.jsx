@@ -78,7 +78,7 @@ function TrackItem({
     <div
       onContextMenu={(event) => handleContextMenu(event)}
       className="flex p-2 bg-gradient-to-r from-gray
-      via-gray-500 to-gray bg-gray opacity-90 rounded-md my-1 text-white
+      via-gray-600 to-gray bg-gray opacity-90 rounded-md my-1 text-white
       items-center flex-row align-middle"
     >
       <div className="w-1/6">
