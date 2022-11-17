@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
-import Uploads from "./pages/Uploads";
 import Playlists from "./pages/Playlists";
 import Profile from "./pages/Profile";
 import Genres from "./pages/Genres";
@@ -57,7 +56,7 @@ function App() {
               path="/playlists"
               element={<Playlists handleCurrentId={handleCurrentId} />}
             />
-            <Route path="/uploads" element={<Uploads />} />
+
             <Route path="/profile" element={<Profile />} />
             <Route
               path="/favourites"
