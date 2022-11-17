@@ -12,6 +12,7 @@ import ProfileIcon from "../SVG/ProfileIcon";
 import GenreIcon from "../SVG/GenreIcon";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../Context/ThemeContext";
+import UploadsIcon from "../SVG/UploadsIcon";
 
 function CustomNavLink({ path, name, children }) {
   const { theme } = useContext(ThemeContext);
@@ -79,6 +80,15 @@ export default function Sidebar({ setIsMenu }) {
         >
           <CustomNavLink name="Profile" path="/profile">
             <ProfileIcon currentPage="/profile" />
+          </CustomNavLink>
+        </li>
+
+        <li
+          onClick={handleClick}
+          className="border-b w-full border-gray-400 py-4"
+        >
+          <CustomNavLink name="Uploads" path="/uploads">
+            <UploadsIcon currentPage="/uploads" />
           </CustomNavLink>
         </li>
 
