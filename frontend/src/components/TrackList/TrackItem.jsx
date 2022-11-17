@@ -35,8 +35,8 @@ function TrackItem({
 
   const handleContextMenu = (e) => {
     e.preventDefault();
-    setX(e.pageX);
-    setY(e.pageY);
+    setX(e.clientX);
+    setY(e.clientY);
     setShowMenu(true);
   };
 
@@ -78,7 +78,7 @@ function TrackItem({
     <div
       onContextMenu={(event) => handleContextMenu(event)}
       className="flex p-2 bg-gradient-to-r from-gray
-      via-gray-500 to-gray bg-gray opacity-90 rounded-md my-1 text-white
+      via-gray-600 to-gray bg-gray opacity-90 rounded-md my-1 text-white
       items-center flex-row align-middle"
     >
       <div className="w-1/6">
@@ -88,7 +88,7 @@ function TrackItem({
           alt=""
         />
       </div>
-      <h2 className="mx-7 flex-grow w-1/2">
+      <h2 className="text-sm mx-7 flex-grow w-1/2 truncate">
         {title} - {artist}
       </h2>
       <div className="sm:flex flex-col-reverse md:flex md:flex-row">
@@ -97,7 +97,7 @@ function TrackItem({
         </div>
         <div className="flex justify-between flex-grow w-2/7">
           <div
-            className={` w-7 h-7 hidden md:block bg-no-repeat hover:scale-125 ${
+            className={` w-7 h-7 bg-no-repeat hover:scale-125 ${
               isFavorite
                 ? "bg-[url('https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg')] bg-[size:90%]"
                 : "bg-[url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg')] bg-[size:110%]"

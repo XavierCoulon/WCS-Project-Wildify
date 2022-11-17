@@ -40,7 +40,7 @@ function Profile({ handleCurrentId }) {
                     10
                   </span>
                   <span className="text-sm text-slate-600 dark:text-gray-200">
-                    Upload
+                    Uploads
                   </span>
                 </div>
               </div>
@@ -59,11 +59,10 @@ function Profile({ handleCurrentId }) {
             <div className="flex flex-wrap justify-center">
               <div className="w-full px-4">
                 <p className="font-light leading-relaxed text-slate-600 dark:text-gray-200 mb-4">
-                  Ma musique? Un mélange de Cauet et Patrick Sébastien.. Je suis
-                  un artiste du kiff, je régale le monde entier de mon talent!
-                  Quand je cligne des yeux, les médias s'affollent, quand je
-                  marche dans la rue, les gens s'évanouissent.. On appelle cela
-                  le charisme!
+                  My music? A mix of Cauet and Patrick Sébastien.. I am a
+                  fantastic artist, I delight the world with my talent! When I
+                  wink, the media go wild, when I walk down the street, people
+                  faint.. Now that's charisma!
                 </p>
               </div>
             </div>
@@ -71,6 +70,7 @@ function Profile({ handleCurrentId }) {
         </div>
 
         <div>
+
           <RecentlyPlayed handleCurrentId={handleCurrentId} />
         </div>
       </div>

@@ -8,10 +8,11 @@ import FavouriteIcon from "../SVG/Favourite";
 import HomeIcon from "../SVG/HomeIcon";
 import PlaylistsIcon from "../SVG/PlaylistsIcon";
 import ProfileIcon from "../SVG/ProfileIcon";
-import UploadsIcon from "../SVG/UploadsIcon";
+
 import GenreIcon from "../SVG/GenreIcon";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../Context/ThemeContext";
+import UploadsIcon from "../SVG/UploadsIcon";
 
 function CustomNavLink({ path, name, children }) {
   const { theme } = useContext(ThemeContext);
@@ -47,7 +48,7 @@ export default function Sidebar({ setIsMenu }) {
   };
 
   return (
-    <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-zinc-900 dark:text-white  bg-[#F3E8F3] dark:bg-grayCustom">
+    <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-[#F3E8F3] dark:bg-slate-800">
       <ul className="w-full">
         <li
           onClick={handleClick}
@@ -81,6 +82,7 @@ export default function Sidebar({ setIsMenu }) {
             <ProfileIcon currentPage="/profile" />
           </CustomNavLink>
         </li>
+
         <li
           onClick={handleClick}
           className="border-b w-full border-gray-400 py-4"
@@ -89,6 +91,7 @@ export default function Sidebar({ setIsMenu }) {
             <UploadsIcon currentPage="/uploads" />
           </CustomNavLink>
         </li>
+
         <li onClick={handleClick} className="py-4 w-full">
           <CustomNavLink name="Genres" path="/genres">
             <GenreIcon currentPage="/genres" />

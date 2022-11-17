@@ -40,12 +40,7 @@ function TrackList({
     setUploadPictureModal({ isActive: false, albumId: null });
   };
 
-  const changeTrack = ({ id }) => {
-    handleCurrentId({ id });
-  };
-
   const loadPlayer = () => {
-    console.error("Loader chargé");
     setTracksPlayer(tracks);
   };
 
@@ -59,7 +54,7 @@ function TrackList({
           duration={e.duration}
           artist={e.artist.name}
           picture={e.album.picture}
-          handleCurrentId={changeTrack}
+          handleCurrentId={handleCurrentId}
           onPlaylist={handlerPlaylistModal}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}

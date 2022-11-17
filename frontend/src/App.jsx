@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
-import Uploads from "./pages/Uploads";
 import Playlists from "./pages/Playlists";
 import Profile from "./pages/Profile";
 import Genres from "./pages/Genres";
@@ -14,6 +13,7 @@ import usePlayerContext from "./Context/PlayerContext";
 import { songsFetcher } from "./utils/axiosTools";
 import Layout from "./components/Layout/Index";
 import ThemeContextProvider from "./Context/ThemeContext";
+import Uploads from "./pages/Uploads";
 
 function App() {
   const [currentId, setCurrentId] = useState();
@@ -57,7 +57,15 @@ function App() {
               path="/playlists"
               element={<Playlists handleCurrentId={handleCurrentId} />}
             />
-            <Route path="/uploads" element={<Uploads />} />
+
+            
+
+
+            <Route
+              path="/uploads"
+              element={<Uploads handleCurrentId={handleCurrentId} />}
+            />
+
             <Route
               path="/profile"
               element={<Profile handleCurrentId={handleCurrentId} />}
