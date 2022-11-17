@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { songsFetcher } from "../utils/axiosTools";
-import TrackList from "./TrackList";
+import TrackList from "./TrackList/index";
 
 function Upload({ handleCurrentId }) {
   const [dragActive, setDragActive] = useState(false);
