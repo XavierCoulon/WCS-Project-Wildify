@@ -25,24 +25,44 @@ function PlaylistCreation({ reload }) {
   };
 
   return (
-    <div>
-      <label htmlFor="title">Title</label>
-      <input className="border-2" ref={inputTitle} id="title" type="text" />
-      <label htmlFor="title">Description</label>
-      <input
-        className="border-2"
-        ref={inputDescription}
-        id="description"
-        type="text"
-      />
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded"
-        type="button"
-        label="Create"
-        onClick={createPlaylist}
-      >
-        CREATE
-      </button>
+    <div className="flex lg:flex-row flex-col h-52 bg-F3E8F3 flex-start items-center align-item">
+      <div className="w-full md:w-1/2 mr-3">
+        <label
+          htmlFor="title text-black font-bold py-2"
+          className="py-1 px-3 mb-3"
+        >
+          Title
+        </label>
+        <input
+          className="text-gray-700 w-full shadow border rounded border-gray-300 focus:outline-none focus:shadow-outline py-1 px-3"
+          ref={inputTitle}
+          id="title"
+          type="text"
+          placeholder="Title..."
+        />
+      </div>
+      <div className="w-full md:w-1/2">
+        <label htmlFor="title" className="py-1 px-3 mb-3">
+          Description
+        </label>
+        <input
+          className="text-gray-700 w-full shadow border rounded border-gray-300 focus:outline-none focus:shadow-outline py-1 px-3"
+          ref={inputDescription}
+          id="description"
+          type="text"
+          placeholder="Description..."
+        />
+      </div>
+      <div className="flex align-bottom justify-end">
+        <button
+          className="bg-white hover:bg-black text-red-600 py-1.5 pb px-3 rounded ml-4 flex"
+          type="button"
+          label="Create"
+          onClick={createPlaylist}
+        >
+          CREATE
+        </button>
+      </div>
     </div>
   );
 }

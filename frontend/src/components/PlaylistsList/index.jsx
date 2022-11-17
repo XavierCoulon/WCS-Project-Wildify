@@ -39,11 +39,14 @@ function PlaylistsList({ handleCurrentId }) {
 
   return (
     <>
-      <div className="grid md:grid-cols-4 sm:grid-cols-2 lg:grid-cols-5 p-5">
+      <div>
+        <PlaylistCreation reload={load} />
+      </div>
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 p-5">
         {list.map((playlist) => (
-          <div className="flex justify-between bg-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 ">
+          <div className="flex justify-center  items-center lg:h-28 md:h-16 h-7  bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white text-center p-1 m-1 hover:scale-125 ">
             <span
-              className="cursor-pointer"
+              className="cursor-pointer w-48"
               aria-hidden="true"
               onClick={() => {
                 setCurrentList(playlist.id);
@@ -63,7 +66,7 @@ function PlaylistsList({ handleCurrentId }) {
           </div>
         ))}
       </div>
-      <PlaylistCreation reload={load} />
+
       {tracks.length === 0 ? (
         <div>No tracks ...</div>
       ) : (
