@@ -5,7 +5,13 @@ import usePlayerContext from "../../Context/PlayerContext";
 import TrackItem from "./TrackItem";
 import UploadPictureModal from "../UploadPicture/UploadPictureModal";
 
-function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
+function TrackList({
+  handleCurrentId,
+  tracks,
+  isPlaying,
+  setIsPlaying,
+  reloadTrackList,
+}) {
   const [playlistsModal, setPlaylistsModal] = useState({
     isActive: false,
     trackId: null,
@@ -44,37 +50,38 @@ function TrackList({ handleCurrentId, tracks, isPlaying, setIsPlaying }) {
   };
 
   return (
-    <div>
-      <div className="flex h-full flex-col pl-5 ">
-        {tracks.map((e) => (
-          <TrackItem
-            key={e.id}
-            id={e.id}
-            title={e.title}
-            duration={e.duration}
-            artist={e.artist.name}
-            picture={e.album.picture}
-            handleCurrentId={changeTrack}
-            onPlaylist={handlerPlaylistModal}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            loadPlayer={loadPlayer}
-            onUploadPicture={handlerUploadPictureModal}
-            albumId={e.albumId}
-          />
-        ))}
-        {playlistsModal.isActive && (
-          <PlaylistsModal
-            trackId={playlistsModal.trackId}
-            onClose={handlerCloseModal}
-          />
-        )}
-        {uploadPictureModal.isActive && (
-          <UploadPictureModal
-            albumId={uploadPictureModal.albumId}
-            onClose={handlerUploadPictureCloseModal}
-          />
-        )}
+
+    <div className="flex h-full flex-col p-5 ">
+      {tracks.map((e) => (
+        <TrackItem
+          key={e.id}
+          id={e.id}
+          title={e.title}
+          duration={e.duration}
+          artist={e.artist.name}
+          picture={e.album.picture}
+          handleCurrentId={changeTrack}
+          onPlaylist={handlerPlaylistModal}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          loadPlayer={loadPlayer}
+          onUploadPicture={handlerUploadPictureModal}
+          albumId={e.albumId}
+          reloadTrackList={reloadTrackList}
+        />
+      ))}
+      {playlistsModal.isActive && (
+        <PlaylistsModal
+          trackId={playlistsModal.trackId}
+          onClose={handlerCloseModal}
+        />
+      )}
+      {uploadPictureModal.isActive && (
+        <UploadPictureModal
+          albumId={uploadPictureModal.albumId}
+          onClose={handlerUploadPictureCloseModal}
+        />
+      )}
       </div>
       <div className="h-24" />
     </div>
@@ -86,6 +93,7 @@ TrackList.propTypes = {
   handleCurrentId: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
+  reloadTrackList: PropTypes.func.isRequired,
 };
 
 export default TrackList;
