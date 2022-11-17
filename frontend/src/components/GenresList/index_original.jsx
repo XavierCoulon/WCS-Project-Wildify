@@ -49,7 +49,7 @@ function GenresList({ showGenres, setShowGenres }) {
               type="button"
               className=" lg:h-28 md:h-16 h-7  bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white items-center text-center p-1 m-1 hover:scale-125 "
             >
-              <Link to="/genres">Voir tout...</Link>
+              <Link to="/genres">See all...</Link>
             </button>
           </div>
         )}
