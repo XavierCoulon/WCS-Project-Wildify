@@ -17,7 +17,7 @@ function Home({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <div className="bg-[#F3E8F3] dark:bg-slate-800 h-full w-full text-black dark:text-white ">
+    <div className="bg-[#F3E8F3] dark:bg-slate-800 h-full w-full  text-black dark:text-white ">
       <div>
         <h2>Genres</h2>
         <GenresList handleCurrentId={handleCurrentId} />
