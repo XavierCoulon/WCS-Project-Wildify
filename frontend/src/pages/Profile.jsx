@@ -72,7 +72,7 @@ function Profile({ handleCurrentId }) {
         </div>
 
         <div>
-          <Upload />
+          <Upload handleCurrentId={handleCurrentId} />
           <RecentlyPlayed handleCurrentId={handleCurrentId} />
         </div>
       </div>
