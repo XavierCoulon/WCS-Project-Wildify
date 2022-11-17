@@ -68,9 +68,7 @@ function Profile({ handleCurrentId }) {
             </div>
           </div>
         </div>
-
         <div>
-
           <RecentlyPlayed handleCurrentId={handleCurrentId} />
         </div>
       </div>
