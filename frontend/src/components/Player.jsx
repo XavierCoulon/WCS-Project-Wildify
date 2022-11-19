@@ -147,7 +147,7 @@ function Player({ currentId }) {
             step="1"
             min="0"
             max={duration || `${duration}`}
-            className="progess my-2 w-full"
+            className="my-2 w-full bg-transparent"
             onChange={(e) => onScrub(e.target.value)}
             onMouseUp={onScrubEnd}
             onKeyUp={onScrubEnd}

@@ -45,7 +45,7 @@ function TrackList({
   };
 
   return (
-    <div className="flex h-full flex-col p-5 ">
+    <div className="flex flex-col w-full">
       {tracks.map((e) => (
         <TrackItem
           key={e.id}
