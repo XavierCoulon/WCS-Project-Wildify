@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import GenresList from "../components/GenresList/index_original";
+import GenresList from "../components/GenresList/index";
 
 function Genres({ handleCurrentId }) {
-  const [showGenres, setShowGenres] = useState(false);
   return (
     <div className="bg-[#F3E8F3] dark:bg-slate-800 w-full h-screen text-white">
-      <GenresList
-        showGenres={showGenres}
-        setShowGenres={setShowGenres}
-        handleCurrentId={handleCurrentId}
-      />
+      <GenresList handleCurrentId={handleCurrentId} defaultGenre="Chill Out" />
     </div>
   );
 }

@@ -1,17 +1,24 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import TrackList from "../TrackList";
 import { genresFetcher, songsFetcher } from "../../utils/axiosTools";
 
 function GenresList({ handleCurrentId }) {
   const [genresList, setGenresList] = useState(null);
-  const [currentGenre, setCurrentGenre] = useState(null);
+  const [currentGenre, setCurrentGenre] = useState("");
   const [tracks, setTracks] = useState(null);
+
+  const location = useLocation();
 
   const load = () =>
     genresFetcher.getAll().then((result) => {
       setGenresList(result);
-      setCurrentGenre(result[0].name);
+      if (location.state) {
+        setCurrentGenre(location.state.genre);
+      } else {
+        setCurrentGenre(result[0].name);
+      }
     });
 
   useEffect(() => {
@@ -27,7 +34,6 @@ function GenresList({ handleCurrentId }) {
   }, [currentGenre]);
 
   if (!tracks) return <div>Loading ...</div>;
-  if (tracks.length === 0) return <div>No tracks</div>;
 
   return (
     <>
