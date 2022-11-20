@@ -22,8 +22,8 @@ function RecentlyPlayed({ handleCurrentId }) {
     <div>
       {recentlyplayed && (
         <div>
-          <span className="rounded-lg text-sm p-2 dark:bg-yellowCustom  dark:text-gray-600">
-            Recently Played
+          <span className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-yellowCustom">
+            Tracks recently played
           </span>
           <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
         </div>

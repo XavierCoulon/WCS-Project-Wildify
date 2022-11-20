@@ -8,7 +8,6 @@ import FavouriteIcon from "../SVG/Favourite";
 import HomeIcon from "../SVG/HomeIcon";
 import PlaylistsIcon from "../SVG/PlaylistsIcon";
 import ProfileIcon from "../SVG/ProfileIcon";
-
 import GenreIcon from "../SVG/GenreIcon";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../Context/ThemeContext";

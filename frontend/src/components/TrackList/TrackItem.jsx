@@ -109,7 +109,7 @@ function TrackItem({
             aria-hidden="true"
           />
           <span
-            className="cursor-pointer hidden mx-1 md:block text-lg"
+            className="cursor-pointer hidden mx-1 hover:scale-125 md:block text-lg"
             aria-hidden="true"
             onClick={() => uploadPicture(albumId)}
           >

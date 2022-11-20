@@ -52,7 +52,7 @@ function GenresList({ handleCurrentId }) {
             }}
           >
             <img
-              className="w-64 cursor-pointer rounded-xl opacity-80 hover:border-2 hover:opacity-100 hover:border-red-400 dark:hover:border-yellowCustom"
+              className="w-64 cursor-pointer rounded-xl opacity-80 hover:border hover:opacity-100 hover:border-red-400 dark:hover:border-yellowCustom"
               src={imagesGenres[index]}
               alt=""
             />
