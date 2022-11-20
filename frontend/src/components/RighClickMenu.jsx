@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { createPortal } from "react-dom";
 import useOnClickOutside from "@jidayyy/useonclickoutside";
+import storage from "../utils/localStorageTools";
 import { songsFetcher } from "../utils/axiosTools";
 
 function RighClickMenu({ x, y, showMenu, id, reloadTrackList }) {
@@ -21,6 +22,8 @@ function RighClickMenu({ x, y, showMenu, id, reloadTrackList }) {
           autoClose: 2000,
         })
       )
+      .then(() => storage.remove("favorite", trackId))
+      .then(() => storage.remove("recentlyPlayed", trackId))
       .then(() => reloadTrackList())
       .catch(() => {
         toast.update(modale, {

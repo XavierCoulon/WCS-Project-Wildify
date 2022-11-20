@@ -39,6 +39,6 @@ function Layout({ tracksPlayer, currentId }) {
 export default Layout;
 
 Layout.propTypes = {
-  tracksPlayer: PropTypes.element.isRequired,
+  tracksPlayer: PropTypes.arrayOf.isRequired,
   currentId: PropTypes.string.isRequired,
 };

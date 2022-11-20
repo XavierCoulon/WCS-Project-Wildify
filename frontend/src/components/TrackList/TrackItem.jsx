@@ -22,8 +22,12 @@ function TrackItem({
   const roundedTime = (time) => {
     const result = [];
     const splitedTime = time.split(":");
-    const minSec = Math.round(+splitedTime[1] * 100) / 100;
-    result.push(splitedTime[0], minSec.toString().padStart(5, "0"));
+    result.push(
+      splitedTime[0],
+      Math.round(+splitedTime[1] - 1)
+        .toString()
+        .padStart(2, "0")
+    );
     return result.join(":");
   };
 

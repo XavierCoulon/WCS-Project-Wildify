@@ -23,7 +23,7 @@ function Player({ currentId }) {
   }, [currentId]);
 
   useEffect(() => {
-    audioRef.current = new Audio(tracksPlayer[trackIndex].link);
+    audioRef.current = new Audio();
   }, []);
 
   const toPrevTrack = () => {
@@ -79,6 +79,22 @@ function Player({ currentId }) {
 
   useEffect(() => {
     audioRef.current.pause();
+    audioRef.current = new Audio(
+      tracksPlayer[tracksPlayer.findIndex((e) => e.id === currentId)].link
+    );
+    setTrackProgress(audioRef.current.currentTime);
+
+    if (isReady.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+      startTimer();
+    } else {
+      isReady.current = true;
+    }
+  }, [currentId]);
+
+  useEffect(() => {
+    audioRef.current.pause();
     audioRef.current = new Audio(tracksPlayer[trackIndex].link);
     setTrackProgress(audioRef.current.currentTime);
 
@@ -124,10 +140,7 @@ function Player({ currentId }) {
           />
         </div>
         <div className="md:w-1/5 w-2/5 hidden md:flex text-c">
-          <h2 className="truncate">{tracksPlayer[trackIndex].title}</h2>
-          <h3 className="truncate">
-            From {tracksPlayer[trackIndex].artist.name}
-          </h3>
+          <h2 className="truncate">{`${tracksPlayer[trackIndex].title} - ${tracksPlayer[trackIndex].artist.name}`}</h2>
         </div>
 
         <p className="w-1/8">{secondsToHms(audioRef.current.currentTime)}</p>
