@@ -4,7 +4,7 @@ import PlaylistsList from "../components/PlaylistsList";
 
 function Playlists({ handleCurrentId }) {
   return (
-    <div className="bg-[#F3E8F3] dark:bg-blackCustom w-full h-screen text-black dark:text-white">
+    <div className="bg-pinkCustom dark:bg-blackCustom w-full h-screen text-black dark:text-white">
       <PlaylistsList handleCurrentId={handleCurrentId} />
     </div>
   );

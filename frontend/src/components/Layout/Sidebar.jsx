@@ -48,7 +48,7 @@ export default function Sidebar({ setIsMenu }) {
   };
 
   return (
-    <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-[#F3E8F3] dark:bg-blackCustom">
+    <div className=" w-270 fixed z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-pinkCustom dark:bg-blackCustom">
       <ul className="w-full">
         <li
           onClick={handleClick}

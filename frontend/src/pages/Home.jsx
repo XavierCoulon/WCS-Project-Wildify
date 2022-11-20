@@ -18,7 +18,7 @@ function Home({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <div className="bg-[#F3E8F3] dark:bg-blackCustom h-full w-full  text-black dark:text-white ">
+    <div className="bg-pinkCustom dark:bg-blackCustom h-full w-full  text-black dark:text-white ">
       <div>
         <h2>Best Genres</h2>
         {bestGenres.map((genre) => (

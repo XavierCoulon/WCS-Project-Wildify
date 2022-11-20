@@ -39,7 +39,7 @@ function GenresList({ handleCurrentId }) {
   return (
     <div className="m-5 align-middle">
       <div className="m-2">
-        <span className="px-3 py-1 rounded-lg text-base  text-black dark:text-yellowCustom dark:text-2xl">
+        <span className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-yellowCustom">
           Genres
         </span>
       </div>
@@ -52,7 +52,7 @@ function GenresList({ handleCurrentId }) {
             }}
           >
             <img
-              className="w-64 h-64 cursor-pointer rounded-xl opacity-80 hover:opacity-100"
+              className="w-64 cursor-pointer rounded-xl opacity-80 hover:border-2 hover:opacity-100 hover:border-red-400 dark:hover:border-yellowCustom"
               src={imagesGenres[index]}
               alt=""
             />
@@ -65,7 +65,7 @@ function GenresList({ handleCurrentId }) {
           </div>
         ))}
       </div>
-      <div className="m-2 h-80 flex justify-center items-center ">
+      <div className="m-2 flex justify-center items-center mt-10 ">
         {tracks.length === 0 ? (
           <div>No tracks ...</div>
         ) : (

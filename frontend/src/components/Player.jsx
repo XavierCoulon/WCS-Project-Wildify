@@ -114,7 +114,7 @@ function Player({ currentId }) {
     return "Loading ...";
 
   return (
-    <div className="w-screen z-50  h-50 opacity-90 bg-gray flex flex-row justify-around bottom-0 fixed text-white m-0">
+    <div className="w-screen z-50 h-50 opacity-80 bg-grayCustom backdrop-blur-sm border-t border-gray-300 flex flex-row justify-around bottom-0 fixed text-white m-0">
       <div className="flex flex-row  justify-between align-middle items-center w-full py-5 px-2 md:p-5">
         <div className="w-1/9 hidden md:flex">
           <img

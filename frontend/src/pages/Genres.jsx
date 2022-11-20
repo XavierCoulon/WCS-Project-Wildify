@@ -4,7 +4,7 @@ import GenresList from "../components/GenresList/index";
 
 function Genres({ handleCurrentId }) {
   return (
-    <div className="bg-[#F3E8F3] dark:bg-blackCustom w-full h-full text-white">
+    <div className="bg-pinkCustom dark:bg-blackCustom w-full h-full">
       <GenresList handleCurrentId={handleCurrentId} defaultGenre="Chill Out" />
     </div>
   );

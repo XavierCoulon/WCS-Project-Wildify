@@ -5,7 +5,7 @@ import favBg from "../assets/Favorite_bg.png";
 
 function Favourites({ handleCurrentId }) {
   return (
-    <div className="bg-[#F3E8F3] dark:bg-blackCustom w-full h-screen text-black dark:text-white">
+    <div className="bg-pinkCustom dark:bg-blackCustom w-full h-screen text-black dark:text-white">
       <div className="flex relative lg:h-3/6 h-1/5 overflow-hidden">
         <div className="lg:h-1/3 h-1/5">
           <img

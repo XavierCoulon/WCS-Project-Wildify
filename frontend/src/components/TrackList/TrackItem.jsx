@@ -109,22 +109,22 @@ function TrackItem({
             aria-hidden="true"
           />
           <span
-            className="cursor-pointer hidden md:block "
+            className="cursor-pointer hidden mx-1 md:block text-lg"
             aria-hidden="true"
             onClick={() => uploadPicture(albumId)}
           >
-            ⇩
+            +
           </span>
 
           <span
-            className="cursor-pointer "
+            className="cursor-pointer mx-1 hover:scale-125 "
             aria-hidden="true"
             onClick={() => playlistHandler(id)}
           >
             ...
           </span>
           <button
-            className="hover:scale-125 hidden md:block "
+            className="hover:scale-125"
             type="button"
             onClick={() => {
               loadPlayer();

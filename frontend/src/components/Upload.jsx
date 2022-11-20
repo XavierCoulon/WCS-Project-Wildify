@@ -87,7 +87,7 @@ function Upload({ handleCurrentId }) {
     <>
       <div className="flex flex-col justify-center items-center">
         <form
-          className="flex flex-col justify-center m-2 h-64 w-96 "
+          className="flex flex-col justify-center m-2 h-64 w-80 "
           onDragEnter={handleDrag}
           onSubmit={(e) => e.preventDefault()}
         >
@@ -103,8 +103,8 @@ function Upload({ handleCurrentId }) {
           <label
             className={
               dragActive
-                ? "bg-gray-200 w-full h-full border-2 border-dashed border-black rounded-md flex justify-center items-center text-center"
-                : " w-full h-full border-2 border-dashed border-black rounded-md flex justify-center items-center text-center"
+                ? "bg-gray-200 w-full h-full border border-dashed border-black rounded-md flex justify-center items-center dark:border-white dark:text-black text-center dark:bg-yellowCustom"
+                : " w-full h-full border-2 border-dashed border-black rounded-md flex justify-center items-center text-center dark:border-white dark:text-white"
             }
             htmlFor="file"
           >
@@ -117,7 +117,7 @@ function Upload({ handleCurrentId }) {
               <button
                 type="button"
                 onClick={onButtonClick}
-                className="text-grey-500 mr-5 mt-5 py-2 px-6 rounded-lg border-0 text-sm font-medium bg-blue-50 text-blue-700 hover:bg-amber-50 hover:text-amber-700"
+                className="text-grey-500 bg-white mr-5 mt-5 py-2 px-6 rounded-lg border-0 border-black text-sm font-medium dark:bg-yellowCustom dark:text-black hover:text-red-400"
               >
                 Upload your file
               </button>
@@ -133,6 +133,11 @@ function Upload({ handleCurrentId }) {
             />
           )}
         </form>
+      </div>
+      <div className="m-2">
+        <span className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-yellowCustom">
+          Your tracks
+        </span>
       </div>
       <div>
         <TrackList

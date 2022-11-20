@@ -19,13 +19,13 @@ function Layout({ tracksPlayer, currentId }) {
   }, [width]);
 
   return (
-    <div className="w-screen pt-[96px] h-screen flex flex-col  bg-[#F3E8F3] dark:bg-blackCustom ">
+    <div className="w-screen pt-[96px] h-screen flex flex-col  bg-pinkCustom dark:bg-blackCustom ">
       <Navbar setIsMenu={setIsMenu} isMenu={isMenu} />
       {isMenu && <Sidebar setIsMenu={setIsMenu} isMenu={isMenu} />}
 
       <div
-        className={`w-full bg-[#F3E8F3] dark:bg-blackCustom ${
-          width < 768 ? "" : "pl-[250px]"
+        className={`w-full bg-pinkCustom dark:bg-blackCustom ${
+          width < 768 ? "" : "pl-[200px]"
         }  overflow-y-scroll h-full flex`}
       >
         <Outlet />

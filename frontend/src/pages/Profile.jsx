@@ -5,7 +5,7 @@ import rousse from "../assets/Rousse.jpg";
 
 function Profile({ handleCurrentId }) {
   return (
-    <div className=" flex flex-col align-middle justify-center  dark:bg-blackCustom bg-gray-100 w-full h-full text-white dark:text-white">
+    <div className=" flex flex-col align-middle justify-center  dark:bg-blackCustom bg-pinkCustom w-full h-full text-white dark:text-white">
       <div className="px-6 h-full">
         <div className="flex flex-wrap mt-24 rounded-md justify-center">
           <div className="w-full relative flex flex-col items-center justify-center">

@@ -8,7 +8,7 @@ function Navbar({ setIsMenu, isMenu }) {
   const { handleToggleDarkMode } = useContext(ThemeContext);
 
   return (
-    <div className="bg-[#F3E8F3] fixed top-0 z-50 dark:bg-blackCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
+    <div className="bg-pinkCustom fixed top-0 z-50 dark:bg-blackCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}

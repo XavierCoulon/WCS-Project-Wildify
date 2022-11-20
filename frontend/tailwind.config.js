@@ -5,12 +5,13 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        custom: "repeat(auto-fill, minmax(300px, 1fr))",
+        custom: "repeat(auto-fill, minmax(200px, 1fr))",
       },
       colors: {
         blackCustom: "#1d2123",
         grayCustom: "#262a2d",
         yellowCustom: "#facd66",
+        pinkCustom: "#F3E8F3",
         gray: {
           DEFAULT: "#33373B",
         },
