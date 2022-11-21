@@ -23,9 +23,9 @@ function Home({ handleCurrentId }) {
 
   return (
     <div className="flex flex-col bg-pinkCustom dark:bg-blackCustom h-full w-full  text-black dark:text-white ">
-      <div className="mx-32 relative">
+      <div className="mx-10 first-letter:lg:mx-32 relative">
         <img
-          className="h-72  w-full rounded-2xl absolute "
+          className="lg:h-72 h-44 w-full rounded-2xl absolute "
           src={musicHome}
           alt="fond page d'accueil"
         />
@@ -33,8 +33,8 @@ function Home({ handleCurrentId }) {
           <WaveImg />
         </div>
       </div>
-      <div className="my-10">
-        <h2 className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-white">
+      <div className="m-5">
+        <h2 className="mx-5px-3 py-1 rounded-lg text-2xl  text-black dark:text-white">
           Best Genres
         </h2>
         <div className="flex ">
@@ -50,17 +50,17 @@ function Home({ handleCurrentId }) {
           ))}
         </div>
       </div>
-      <div>
+      <div className="mx-5">
         <h2 className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-white">
           Favorites
         </h2>
         <FavouritesList />
       </div>
-      <div className="py-14">
+      <div className="mx-5 py-14">
         <RecentlyPlayed handleCurrentId={handleCurrentId} />
       </div>
 
-      <div>
+      <div className="mx-5">
         <h2 className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-white">
           All songs
         </h2>
