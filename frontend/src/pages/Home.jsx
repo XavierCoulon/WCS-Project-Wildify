@@ -7,10 +7,11 @@ import { songsFetcher } from "../utils/axiosTools";
 import musicHome from "../assets/music-home.jpg";
 import WaveImg from "../assets/waveImg";
 import FavouritesList from "../components/FavouritesList";
+import imagesGenres from "../components/ImageGenre";
 
 function Home({ handleCurrentId }) {
   const [tracks, setTracks] = useState([]);
-  const bestGenres = ["Chill Out", "rnb", "Rock"];
+  const bestGenres = ["Chill Out", "RnB", "Rock"];
 
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
@@ -37,13 +38,13 @@ function Home({ handleCurrentId }) {
           Best Genres
         </h2>
         <div className="flex ">
-          {bestGenres.map((genre) => (
-            <Link
-              key={genre}
-              to="/genres"
-              state={{ genre }}
-              className=" flex justify-center  items-center h-20 w-40 bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white text-center p-1 m-1 hover:scale-125 "
-            >
+          {bestGenres.map((genre, index) => (
+            <Link key={genre} to="/genres" state={{ genre }}>
+              <img
+                className="w-48 mr-5 cursor-pointer rounded-xl opacity-80 hover:border hover:opacity-100 hover:border-red-400 dark:hover:border-yellowCustom"
+                src={imagesGenres[index]}
+                alt="genre"
+              />{" "}
               {genre}
             </Link>
           ))}
