@@ -28,7 +28,7 @@ function PlaylistsModal({ trackId, onClose }) {
           </div>
           <div className="mt-4 flex">
             {data && (
-              <div className="text-center">
+              <div className="text-center mr-10">
                 <ul>
                   {data.map((playlist) => (
                     <PlaylistItem
