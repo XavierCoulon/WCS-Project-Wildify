@@ -7,7 +7,13 @@ function UploadPicture({ albumId }) {
   const [dragActive, setDragActive] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
   const inputRef = useRef("");
-  const imageTypes = ["image/png", "image/gif", "image/bmp", "image/jpeg"];
+  const imageTypes = [
+    "image/png",
+    "image/gif",
+    "image/bmp",
+    "image/jpeg",
+    "image/webp",
+  ];
 
   const handleDrag = (e) => {
     e.preventDefault();
