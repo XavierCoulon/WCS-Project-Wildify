@@ -38,13 +38,18 @@ function PlaylistsList({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <>
+    <div className="m-5 align-middle">
+      <div className="m-2">
+        <span className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-yellowCustom">
+          My playlists
+        </span>
+      </div>
       <div>
         <PlaylistCreation reload={load} />
       </div>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 p-5">
+      <div className="grid grid-cols-custom m-2">
         {list.map((playlist) => (
-          <div className="flex justify-center  items-center lg:h-28 md:h-16 h-7  bg-gradient-to-l from-gray via-gray-500 to-gray opacity-90 rounded-md my-1 text-white text-center p-1 m-1 hover:scale-125 ">
+          <div className="flex justify-center items-center lg:h-28 md:h-16 h-7 rounded-md my-1 text-white text-center p-1 m-1 bg-grayCustom opacity-90 hover:border hover:border-red-400 hover:text-red-400 dark:hover:border dark:hover:text-yellowCustom dark:hover:border-yellowCustom ">
             <span
               className="cursor-pointer w-48"
               aria-hidden="true"
@@ -67,12 +72,14 @@ function PlaylistsList({ handleCurrentId }) {
         ))}
       </div>
 
-      {tracks.length === 0 ? (
-        <div>No tracks ...</div>
-      ) : (
-        <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-      )}
-    </>
+      <div className="m-2 flex justify-center items-center mt-10 ">
+        {tracks.length === 0 ? (
+          <div>No tracks ...</div>
+        ) : (
+          <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+        )}
+      </div>
+    </div>
   );
 }
 

@@ -8,7 +8,6 @@ import FavouriteIcon from "../SVG/Favourite";
 import HomeIcon from "../SVG/HomeIcon";
 import PlaylistsIcon from "../SVG/PlaylistsIcon";
 import ProfileIcon from "../SVG/ProfileIcon";
-
 import GenreIcon from "../SVG/GenreIcon";
 import useWindowSize from "../../hooks/useWindowSize";
 import { ThemeContext } from "../../Context/ThemeContext";
@@ -19,10 +18,10 @@ function CustomNavLink({ path, name, children }) {
 
   const activeStyle = {
     light: {
-      color: "red",
+      color: "#f87185",
     },
     dark: {
-      color: "yellow",
+      color: "#facd66",
     },
   };
 
@@ -48,7 +47,7 @@ export default function Sidebar({ setIsMenu }) {
   };
 
   return (
-    <div className=" min-w-[250px] left-0 max-w-[250px] fixed  z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-[#F3E8F3] dark:bg-slate-800">
+    <div className=" w-270 fixed z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-pinkCustom dark:bg-blackCustom">
       <ul className="w-full">
         <li
           onClick={handleClick}

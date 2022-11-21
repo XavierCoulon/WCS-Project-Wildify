@@ -22,8 +22,12 @@ function TrackItem({
   const roundedTime = (time) => {
     const result = [];
     const splitedTime = time.split(":");
-    const minSec = Math.round(+splitedTime[1] * 100) / 100;
-    result.push(splitedTime[0], minSec.toString().padStart(5, "0"));
+    result.push(
+      splitedTime[0],
+      Math.round(+splitedTime[1] - 1)
+        .toString()
+        .padStart(2, "0")
+    );
     return result.join(":");
   };
 
@@ -77,8 +81,8 @@ function TrackItem({
   return (
     <div
       onContextMenu={(event) => handleContextMenu(event)}
-      className="flex p-2 bg-gradient-to-r from-gray
-      via-gray-600 to-gray bg-gray opacity-90 rounded-md my-1 text-white
+      className="flex p-2 bg-grayCustom
+      opacity-90 rounded-md my-1 text-white
       items-center flex-row align-middle"
     >
       <div className="w-1/6">
@@ -109,22 +113,22 @@ function TrackItem({
             aria-hidden="true"
           />
           <span
-            className="cursor-pointer hidden md:block "
+            className="cursor-pointer hidden mx-1 hover:scale-125 md:block text-lg"
             aria-hidden="true"
             onClick={() => uploadPicture(albumId)}
           >
-            ⇩
+            +
           </span>
 
           <span
-            className="cursor-pointer "
+            className="cursor-pointer mx-1 hover:scale-125 "
             aria-hidden="true"
             onClick={() => playlistHandler(id)}
           >
             ...
           </span>
           <button
-            className="hover:scale-125 hidden md:block "
+            className="hover:scale-125"
             type="button"
             onClick={() => {
               loadPlayer();

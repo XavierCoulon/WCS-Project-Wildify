@@ -4,8 +4,14 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        custom: "repeat(auto-fill, minmax(200px, 1fr))",
+      },
       colors: {
-        grayCustom: "#1D2123",
+        blackCustom: "#1d2123",
+        grayCustom: "#262a2d",
+        yellowCustom: "#facd66",
+        pinkCustom: "#F3E8F3",
         gray: {
           DEFAULT: "#33373B",
         },

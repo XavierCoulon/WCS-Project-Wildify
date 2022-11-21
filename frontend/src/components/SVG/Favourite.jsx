@@ -12,7 +12,7 @@ const FavouriteIcon = (props) => {
 
   const getFillColor = () => {
     if (theme === "dark") {
-      return currentPage === pathname ? "yellow" : "white";
+      return currentPage === pathname ? "#facd66" : "white";
     }
     return currentPage === pathname ? "red" : "black";
   };

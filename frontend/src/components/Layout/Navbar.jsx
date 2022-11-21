@@ -8,7 +8,7 @@ function Navbar({ setIsMenu, isMenu }) {
   const { handleToggleDarkMode } = useContext(ThemeContext);
 
   return (
-    <div className="bg-[#F3E8F3] fixed top-0 z-50 dark:bg-slate-800 p-6 flex justify-between items-center align-middle w-full h-[96px]">
+    <div className="bg-pinkCustom fixed top-0 z-50 dark:bg-blackCustom p-6 flex justify-between items-center align-middle w-full h-[96px]">
       {isMenu ? (
         <img
           onClick={() => setIsMenu((state) => !state)}
@@ -26,13 +26,13 @@ function Navbar({ setIsMenu, isMenu }) {
       )}
       <input
         type="text"
-        className="dark:bg-slate-800 dark:placeholder-white placeholder-black bg-white rounded-lg w-3/5 px-3 py-1 border-2  text-black dark:text-white focus:border-0 lg:ml-28"
+        className="dark:bg-blackCustom dark:placeholder-white placeholder-black bg-white rounded-lg w-3/5 px-3 py-1 border-2  text-black dark:text-white focus:border-0 lg:ml-28"
         placeholder="Search..."
       />
       <button
         onClick={handleToggleDarkMode}
         type="button"
-        className="h-8 w-15 rounded-lg px-1  bg-[#F3E8F3] dark:bg-[#F3E8F3] "
+        className="h-8 w-15 rounded-lg px-1  bg-[#F3E8F3] dark:bg-blackCustom "
       >
         🌓
       </button>
