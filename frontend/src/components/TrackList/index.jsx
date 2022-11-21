@@ -45,7 +45,7 @@ function TrackList({
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full py-5">
       {tracks.map((e) => (
         <TrackItem
           key={e.id}
@@ -76,7 +76,6 @@ function TrackList({
           onClose={handlerUploadPictureCloseModal}
         />
       )}
-      <div className="h-24" />
     </div>
   );
 }
