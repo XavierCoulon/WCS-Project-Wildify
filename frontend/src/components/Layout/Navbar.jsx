@@ -32,7 +32,7 @@ function Navbar({ setIsMenu, isMenu }) {
       <button
         onClick={handleToggleDarkMode}
         type="button"
-        className="h-8 w-15 rounded-lg px-1  bg-[#F3E8F3] dark:bg-blackCustom "
+        className="h-8 w-15 rounded-lg px-1 md:scale-150 bg-[#F3E8F3] dark:bg-blackCustom "
       >
         🌓
       </button>
@@ -40,7 +40,7 @@ function Navbar({ setIsMenu, isMenu }) {
       <img
         src="src/assets/wildifyLogo.png"
         alt="logo"
-        className=" rounded-md w-12"
+        className=" rounded-md w-12 md:scale-150"
       />
     </div>
   );
