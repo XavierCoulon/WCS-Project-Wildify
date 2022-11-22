@@ -47,11 +47,11 @@ export default function Sidebar({ setIsMenu }) {
   };
 
   return (
-    <div className=" w-270 fixed z-30 px-4 h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-pinkCustom dark:bg-blackCustom">
-      <ul className="w-full">
+    <div className=" w-270 fixed z-30 px-4  h-screen flex flex-col justify-start align-middle items-center text-black dark:text-white  bg-pinkCustom dark:bg-blackCustom">
+      <ul className="w-full pr-6 overflow-y-scroll">
         <li
           onClick={handleClick}
-          className="border-b w-full border-gray-400  pt-12 pb-4"
+          className="border-b w-full border-gray-400  pt-4 pb-3"
         >
           <CustomNavLink name="Home" path="/">
             <HomeIcon currentPage="/" />
@@ -59,7 +59,15 @@ export default function Sidebar({ setIsMenu }) {
         </li>
         <li
           onClick={handleClick}
-          className="border-b w-full border-gray-400 py-4"
+          className="border-b w-full py-3 border-gray-400"
+        >
+          <CustomNavLink name="Genres" path="/genres">
+            <GenreIcon currentPage="/genres" />
+          </CustomNavLink>
+        </li>
+        <li
+          onClick={handleClick}
+          className="border-b w-full border-gray-400 py-3"
         >
           <CustomNavLink name="Favourites" path="/favourites">
             <FavouriteIcon currentPage="/favourites" />
@@ -67,7 +75,7 @@ export default function Sidebar({ setIsMenu }) {
         </li>
         <li
           onClick={handleClick}
-          className="border-b w-full border-gray-400 py-4"
+          className="border-b w-full border-gray-400 py-3"
         >
           <CustomNavLink name="Playlists" path="/playlists">
             <PlaylistsIcon currentPage="/playlists" />
@@ -75,25 +83,15 @@ export default function Sidebar({ setIsMenu }) {
         </li>
         <li
           onClick={handleClick}
-          className="border-b w-full border-gray-400 py-4"
-        >
-          <CustomNavLink name="Profile" path="/profile">
-            <ProfileIcon currentPage="/profile" />
-          </CustomNavLink>
-        </li>
-
-        <li
-          onClick={handleClick}
-          className="border-b w-full border-gray-400 py-4"
+          className="border-b w-full border-gray-400 py-3"
         >
           <CustomNavLink name="Uploads" path="/uploads">
             <UploadsIcon currentPage="/uploads" />
           </CustomNavLink>
         </li>
-
-        <li onClick={handleClick} className="py-4 w-full">
-          <CustomNavLink name="Genres" path="/genres">
-            <GenreIcon currentPage="/genres" />
+        <li onClick={handleClick} className=" w-full  pt-3 pb-60">
+          <CustomNavLink name="Profile" path="/profile">
+            <ProfileIcon currentPage="/profile" />
           </CustomNavLink>
         </li>
       </ul>
