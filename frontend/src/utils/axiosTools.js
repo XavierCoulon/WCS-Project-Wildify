@@ -45,7 +45,7 @@ export const songsFetcher = {
     const res = await axiosInstance.post("/songs/", formData, {
       headers: { "Content-type": "multipart/form-data" },
     });
-    return res.data.sort(alphabeticSortTitle);
+    return res.data;
   },
 };
 
