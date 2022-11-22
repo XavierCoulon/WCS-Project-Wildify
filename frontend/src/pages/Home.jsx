@@ -27,7 +27,7 @@ function Home({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <div className="flex flex-col bg-pinkCustom dark:bg-blackCustom h-full w-full  text-black dark:text-white ">
+    <div className=" mb-32 lex flex-col bg-pinkCustom dark:bg-blackCustom h-full w-full  text-black dark:text-white ">
       <div className="mx-10 first-letter:lg:mx-32 relative">
         <img
           className="lg:h-72 h-44 w-full rounded-2xl absolute "
@@ -70,15 +70,17 @@ function Home({ handleCurrentId }) {
           All songs
         </h2>
         <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
-        <button
-          className=" w-full flex p-2 bg-grayCustom justify-center
+        <div className="pb-24">
+          <button
+            className=" w-full flex p-2 bg-grayCustom justify-center
       opacity-90 rounded-md  text-white
-      items-center flex-row align-middle mb-2"
-          type="button"
-          onClick={() => setShowTracks(!showTracks)}
-        >
-          {showTracks ? "Show less ..." : "Show all ..."}
-        </button>
+      items-center flex-row align-middle mb-4"
+            type="button"
+            onClick={() => setShowTracks(!showTracks)}
+          >
+            {showTracks ? "Show less ..." : "Show all ..."}
+          </button>
+        </div>
       </div>
     </div>
   );

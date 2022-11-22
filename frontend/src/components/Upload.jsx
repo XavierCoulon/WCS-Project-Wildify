@@ -139,7 +139,7 @@ function Upload({ handleCurrentId }) {
           Your tracks
         </span>
       </div>
-      <div className="m-2">
+      <div className="m-2 pb-24">
         <TrackList
           tracks={tracks}
           handleCurrentId={handleCurrentId}
