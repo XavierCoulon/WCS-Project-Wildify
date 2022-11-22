@@ -12,8 +12,29 @@ const axiosInstance = axios.create({
   },
 });
 
+const alphabeticSortTitle = (a, b) => {
+  if (a.title < b.title) {
+    return -1;
+  }
+  if (a.title > b.title) {
+    return 1;
+  }
+  return 0;
+};
+
+const alphabeticSortName = (a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+};
+
 export const songsFetcher = {
-  getAll: async () => (await axiosInstance.get(`/songs/`)).data,
+  getAll: async () =>
+    (await axiosInstance.get(`/songs/`)).data.sort(alphabeticSortTitle),
   getOne: async (id) => (await axiosInstance.get(`/songs/${id}`)).data,
   delete: async (id) => (await axiosInstance.delete(`/songs/${id}`)).data,
   getAllByGenre: async (genre) =>
@@ -24,7 +45,7 @@ export const songsFetcher = {
     const res = await axiosInstance.post("/songs/", formData, {
       headers: { "Content-type": "multipart/form-data" },
     });
-    return res.data;
+    return res.data.sort(alphabeticSortTitle);
   },
 };
 
@@ -48,7 +69,8 @@ export const playlistsFetcher = {
 };
 
 export const genresFetcher = {
-  getAll: async () => (await axiosInstance.get(`/genres`)).data,
+  getAll: async () =>
+    (await axiosInstance.get(`/genres`)).data.sort(alphabeticSortName),
   getOne: async (id) => (await axiosInstance.get(`/genres/${id}`)).data,
   delete: async (id) => (await axiosInstance.delete(`/genres/${id}`)).data,
 };

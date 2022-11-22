@@ -40,6 +40,8 @@ function RighClickMenu({ x, y, showMenu, id, reloadTrackList }) {
       height: 40,
       width: 40,
       borderRadius: 10,
+      border: "solid",
+      borderColor: "red",
       backgroundColor: "white",
       color: "black",
       flexDirection: "column",

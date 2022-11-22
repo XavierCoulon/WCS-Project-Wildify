@@ -9,6 +9,7 @@ function Player({ currentId }) {
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [count, setCount] = useState(0);
 
   // Refs
   const audioRef = useRef(null);
@@ -85,9 +86,13 @@ function Player({ currentId }) {
     setTrackProgress(audioRef.current.currentTime);
 
     if (isReady.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-      startTimer();
+      if (count > 2) {
+        audioRef.current.play();
+        setIsPlaying(true);
+        startTimer();
+      } else {
+        setCount((previousCount) => previousCount + 1);
+      }
     } else {
       isReady.current = true;
     }
@@ -99,9 +104,13 @@ function Player({ currentId }) {
     setTrackProgress(audioRef.current.currentTime);
 
     if (isReady.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-      startTimer();
+      if (count > 2) {
+        audioRef.current.play();
+        setIsPlaying(true);
+        startTimer();
+      } else {
+        setCount((previousCount) => previousCount + 1);
+      }
     } else {
       isReady.current = true;
     }
