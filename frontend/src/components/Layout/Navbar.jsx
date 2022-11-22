@@ -26,7 +26,7 @@ function Navbar({ setIsMenu, isMenu }) {
       )}
       <input
         type="text"
-        className="dark:bg-blackCustom dark:placeholder-white placeholder-black bg-white rounded-lg  w-3/5 px-3 py-1 border-2  text-black dark:text-white focus:border-0 lg:ml-52"
+        className="dark:bg-blackCustom dark:placeholder-white placeholder-black bg-white rounded-lg  w-3/5 px-3 py-1 border-2  text-black dark:text-white focus:border-0 md:ml-52"
         placeholder="Search..."
       />
       <button
