@@ -68,7 +68,7 @@ function Profile({ handleCurrentId }) {
             </div>
           </div>
         </div>
-        <div>
+        <div className="pb-24">
           <RecentlyPlayed handleCurrentId={handleCurrentId} />
         </div>
       </div>

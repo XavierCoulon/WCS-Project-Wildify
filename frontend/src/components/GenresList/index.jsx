@@ -37,7 +37,7 @@ function GenresList({ handleCurrentId }) {
   if (!tracks) return <div>Loading ...</div>;
 
   return (
-    <div className="m-5 align-middle">
+    <div className="m-5 pb-28 align-middle">
       <div className="m-2">
         <span className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-yellowCustom">
           Genres

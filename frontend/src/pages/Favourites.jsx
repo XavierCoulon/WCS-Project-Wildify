@@ -23,7 +23,7 @@ function Favourites({ handleCurrentId }) {
           Favourites
         </h1>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 pb-24">
         <FavouritesList handleCurrentId={handleCurrentId} />
       </div>
     </div>

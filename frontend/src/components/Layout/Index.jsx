@@ -30,7 +30,7 @@ function Layout({ tracksPlayer, currentId }) {
       >
         <Outlet />
       </div>
-      <div className="h-24" />
+
       {tracksPlayer.length && <Player currentId={currentId} />}
     </div>
   );
