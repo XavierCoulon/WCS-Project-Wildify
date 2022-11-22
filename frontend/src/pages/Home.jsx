@@ -12,12 +12,17 @@ import imagesGenres from "../components/ImageGenre";
 function Home({ handleCurrentId }) {
   const [tracks, setTracks] = useState([]);
   const bestGenres = ["Chill Out", "RnB", "Rock"];
+  const [showTracks, setShowTracks] = useState(false);
 
   useEffect(() => {
     songsFetcher.getAll().then((res) => {
-      setTracks(res.slice(0, 8));
+      if (showTracks) {
+        setTracks(res);
+      } else {
+        setTracks(res.slice(0, 8));
+      }
     });
-  }, []);
+  }, [showTracks]);
 
   if (!tracks) return <div>Loading ...</div>;
 
@@ -54,7 +59,7 @@ function Home({ handleCurrentId }) {
         <h2 className="px-3 py-1 rounded-lg text-2xl  text-black dark:text-white">
           Favorites
         </h2>
-        <FavouritesList />
+        <FavouritesList handleCurrentId={handleCurrentId} />
       </div>
       <div className="mx-5 py-14">
         <RecentlyPlayed handleCurrentId={handleCurrentId} />
@@ -65,6 +70,15 @@ function Home({ handleCurrentId }) {
           All songs
         </h2>
         <TrackList tracks={tracks} handleCurrentId={handleCurrentId} />
+        <button
+          className=" w-full flex p-2 bg-grayCustom justify-center
+      opacity-90 rounded-md  text-white
+      items-center flex-row align-middle mb-2"
+          type="button"
+          onClick={() => setShowTracks(!showTracks)}
+        >
+          {showTracks ? "Show less ..." : "Show all ..."}
+        </button>
       </div>
     </div>
   );
