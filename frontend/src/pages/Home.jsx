@@ -11,7 +11,7 @@ import imagesGenres from "../components/ImageGenre";
 
 function Home({ handleCurrentId }) {
   const [tracks, setTracks] = useState([]);
-  const bestGenres = ["Chill Out", "RnB", "Rock"];
+  const bestGenres = ["Alternative", "Blues", "Chill Out"];
   const [showTracks, setShowTracks] = useState(false);
 
   useEffect(() => {
