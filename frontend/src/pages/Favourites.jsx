@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import favImg from "../assets/Lead-image.png";
 import favBg from "../assets/Favorite_bg.png";
 import storage from "../utils/localStorageTools";
@@ -7,6 +7,9 @@ import FavouritesList from "../components/FavouritesList";
 
 function Favourites({ handleCurrentId }) {
   const [favourites, setFavourites] = useState(() => storage.get("favorite"));
+  useEffect(() => {
+    setFavourites(storage.get("favorite"));
+  }, [favourites]);
   return (
     <div className="bg-pinkCustom dark:bg-blackCustom w-full h-screen text-black dark:text-white">
       <div className="flex relative lg:h-3/6 h-1/5 overflow-hidden">
@@ -43,11 +46,7 @@ function Favourites({ handleCurrentId }) {
         </div>
       </div>
       <div className="mt-5 pb-24">
-        <FavouritesList
-          favourites={favourites}
-          setFavorites={setFavourites}
-          handleCurrentId={handleCurrentId}
-        />
+        <FavouritesList handleCurrentId={handleCurrentId} />
       </div>
     </div>
   );
