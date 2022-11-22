@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import RecentlyPlayed from "../components/RecentlyPlayed";
-import rousse from "../assets/Rousse.jpg";
+import pabo from "../assets/pabo.jpg";
 
 function Profile({ handleCurrentId }) {
   return (
@@ -11,7 +11,7 @@ function Profile({ handleCurrentId }) {
           <div className="w-full relative flex flex-col items-center justify-center">
             <div className=" w-full transform absolute -translate-y-20 flex items-center justify-center">
               <img
-                src={rousse}
+                src={pabo}
                 className="z-50  shadow-xl object-cover rounded-full align-bottom border-none h-[150px] w-[150px]  min-h-[150px]  min-w-[150px]"
                 alt="rousse"
               />

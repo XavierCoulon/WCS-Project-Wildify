@@ -26,13 +26,13 @@ function Navbar({ setIsMenu, isMenu }) {
       )}
       <input
         type="text"
-        className="dark:bg-blackCustom dark:placeholder-white placeholder-black bg-white rounded-lg w-3/5 px-3 py-1 border-2  text-black dark:text-white focus:border-0 lg:ml-28"
+        className="dark:bg-blackCustom dark:placeholder-white placeholder-black bg-white rounded-lg  w-3/5 px-3 py-1 border-2  text-black dark:text-white focus:border-0 lg:ml-52"
         placeholder="Search..."
       />
       <button
         onClick={handleToggleDarkMode}
         type="button"
-        className="h-8 w-15 rounded-lg px-1  bg-[#F3E8F3] dark:bg-blackCustom "
+        className="h-8 w-15 rounded-lg px-1 md:scale-150 bg-[#F3E8F3] dark:bg-blackCustom "
       >
         🌓
       </button>
@@ -40,7 +40,7 @@ function Navbar({ setIsMenu, isMenu }) {
       <img
         src="src/assets/wildifyLogo.png"
         alt="logo"
-        className=" rounded-md w-12"
+        className=" rounded-md w-12 md:scale-150"
       />
     </div>
   );
