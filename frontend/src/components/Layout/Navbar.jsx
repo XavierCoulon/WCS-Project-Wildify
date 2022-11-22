@@ -38,7 +38,7 @@ function Navbar({ setIsMenu, isMenu }) {
       </button>
 
       <img
-        src="src/assets/wildifyLogo.png"
+        src="src/assets/logo.png"
         alt="logo"
         className=" rounded-md w-12 md:scale-150"
       />
