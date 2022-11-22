@@ -32,6 +32,10 @@ function Upload({ handleCurrentId }) {
     }
   };
 
+  const openDataTransfert = () => {
+    inputRef.current.click();
+  };
+
   const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -93,8 +97,8 @@ function Upload({ handleCurrentId }) {
         >
           <input
             ref={inputRef}
-            className="hidden"
-            id="file"
+            className="invisible"
+            id="uploadFile"
             type="file"
             accept="mp3"
             onChange={handleChange}
@@ -110,7 +114,7 @@ function Upload({ handleCurrentId }) {
           >
             <div>
               <p>Drag and drop your MP3 file here</p>
-              <p>
+              <p aria-hidden="true" onClick={openDataTransfert}>
                 <i>(or simply click to select it...)</i>
               </p>
               <p>{inputRef ? inputRef.current.value : ""}</p>
