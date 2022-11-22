@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import RecentlyPlayed from "../components/RecentlyPlayed";
 import pabo from "../assets/pabo.jpg";
+import storage from "../utils/localStorageTools";
 
 function Profile({ handleCurrentId }) {
+  const favourites = storage.get("favorite");
+
   return (
     <div className=" flex flex-col align-middle justify-center  dark:bg-blackCustom bg-pinkCustom w-full h-full text-white dark:text-white">
       <div className="px-6 h-full">
@@ -20,27 +23,10 @@ function Profile({ handleCurrentId }) {
               <div className="flex justify-center lg:pt-4 pt-8 pb-0">
                 <div className="p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-slate-600 dark:text-gray-200">
-                    10
-                  </span>
-                  <span className="text-sm text-slate-600 dark:text-gray-200">
-                    Photos
-                  </span>
-                </div>
-                <div className="p-3 text-center">
-                  <span className="text-xl font-bold block uppercase tracking-wide text-slate-600 dark:text-gray-200">
-                    10
+                    {favourites.length}
                   </span>
                   <span className="text-sm text-slate-600 dark:text-gray-200">
                     Favourites
-                  </span>
-                </div>
-
-                <div className="p-3 text-center">
-                  <span className="text-xl font-bold block uppercase tracking-wide text-slate-600 dark:text-gray-200">
-                    10
-                  </span>
-                  <span className="text-sm text-slate-600 dark:text-gray-200">
-                    Uploads
                   </span>
                 </div>
               </div>
