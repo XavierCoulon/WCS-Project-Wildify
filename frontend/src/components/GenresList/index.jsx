@@ -52,13 +52,13 @@ function GenresList({ handleCurrentId }) {
             }}
           >
             <img
-              className="w-64 cursor-pointer rounded-xl opacity-80 hover:border hover:opacity-100 hover:border-red-400 dark:hover:border-yellowCustom"
+              className="w-64 lg:h-40 h-20 cursor-pointer rounded-xl opacity-80 hover:border hover:opacity-100 hover:border-red-400 dark:hover:border-yellowCustom"
               src={imagesGenres[index]}
               alt=""
             />
             <span
               key={genre.id}
-              className="flex cursor-pointer px-3 rounded-md dark:text-white dark:hover:text-yellowCustom hover:text-red-400  text-black"
+              className="mb-2 flex cursor-pointer px-3 rounded-md dark:text-white dark:hover:text-yellowCustom hover:text-red-400  text-black"
             >
               {genre.name}
             </span>
