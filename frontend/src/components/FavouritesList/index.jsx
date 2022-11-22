@@ -4,8 +4,9 @@ import storage from "../../utils/localStorageTools";
 import { songsFetcher } from "../../utils/axiosTools";
 import TrackList from "../TrackList";
 
-function FavouritesList({ handleCurrentId, favourites, setFavourites }) {
+function FavouritesList({ handleCurrentId }) {
   const [tracks, setTracks] = useState(null);
+  const [favourites, setFavourites] = useState(() => storage.get("favorite"));
 
   useEffect(() => {
     songsFetcher.getAll().then((result) => setTracks(result));
@@ -39,6 +40,4 @@ export default FavouritesList;
 
 FavouritesList.propTypes = {
   handleCurrentId: PropTypes.func.isRequired,
-  setFavourites: PropTypes.func.isRequired,
-  favourites: PropTypes.arrayOf.isRequired,
 };
