@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import NextSvg from "./Next";
 import PauseSvg from "./Pause";
 import PlaySvg from "./Play";
@@ -59,10 +58,3 @@ function AudioControl({
 }
 
 export default AudioControl;
-
-AudioControl.propTypes = {
-  isPlaying: PropTypes.bool.isRequired,
-  onPlayPauseClick: PropTypes.func.isRequired,
-  onPrevClick: PropTypes.func.isRequired,
-  onNextClick: PropTypes.func.isRequired,
-};

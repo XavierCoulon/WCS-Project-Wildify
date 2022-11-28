@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { createPortal } from "react-dom";
 import useOnClickOutside from "@jidayyy/useonclickoutside";
@@ -69,10 +68,3 @@ function RighClickMenu({ x, y, showMenu, id, reloadTrackList }) {
 }
 
 export default RighClickMenu;
-
-RighClickMenu.propTypes = {
-  x: PropTypes.number.isRequired,
-  y: PropTypes.number.isRequired,
-  showMenu: PropTypes.bool.isRequired,
-  reloadTrackList: PropTypes.func.isRequired,
-};

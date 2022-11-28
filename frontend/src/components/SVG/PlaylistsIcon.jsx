@@ -1,7 +1,6 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import PropTypes from "prop-types";
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ThemeContext } from "../../Context/ThemeContext";
@@ -35,8 +34,3 @@ const PlaylistsIcon = (props) => {
 };
 
 export default PlaylistsIcon;
-
-PlaylistsIcon.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-};

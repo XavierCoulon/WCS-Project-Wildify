@@ -1,21 +1,20 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
 
 const HomeIcon = (props) => {
   const { pathname } = useLocation();
-  const { currentPage } = props;
+  const { currentpage } = props;
   const { theme } = useContext(ThemeContext);
 
   const getFillColor = () => {
     if (theme === "dark") {
-      return currentPage === pathname ? "#facd66" : "white";
+      return currentpage === pathname ? "#facd66" : "white";
     }
-    return currentPage === pathname ? "red" : "black";
+    return currentpage === pathname ? "red" : "black";
   };
 
   return (
@@ -68,8 +67,3 @@ const HomeIcon = (props) => {
 };
 
 export default HomeIcon;
-
-HomeIcon.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-};

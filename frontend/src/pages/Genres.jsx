@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import GenresList from "../components/GenresList/index";
 
 function Genres({ handleCurrentId }) {
@@ -11,7 +10,3 @@ function Genres({ handleCurrentId }) {
 }
 
 export default Genres;
-
-Genres.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

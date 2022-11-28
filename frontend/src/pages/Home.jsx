@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import TrackList from "../components/TrackList";
 import RecentlyPlayed from "../components/RecentlyPlayed";
@@ -87,7 +86,3 @@ function Home({ handleCurrentId }) {
 }
 
 export default Home;
-
-Home.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

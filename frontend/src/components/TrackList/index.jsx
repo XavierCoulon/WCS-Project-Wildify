@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
 import PlaylistsModal from "../PlaylistsList/PlaylistsModal";
 import usePlayerContext from "../../Context/PlayerContext";
@@ -79,13 +78,5 @@ function TrackList({
     </div>
   );
 }
-
-TrackList.propTypes = {
-  tracks: PropTypes.arrayOf().isRequired,
-  handleCurrentId: PropTypes.func.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
-  reloadTrackList: PropTypes.func.isRequired,
-};
 
 export default TrackList;

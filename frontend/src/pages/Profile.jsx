@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import RecentlyPlayed from "../components/RecentlyPlayed";
-import pabo from "../assets/pabo.jpg";
+import logo from "../assets/logo.png";
 import storage from "../utils/localStorageTools";
 
 function Profile({ handleCurrentId }) {
@@ -14,7 +13,7 @@ function Profile({ handleCurrentId }) {
           <div className="w-full relative flex flex-col items-center justify-center">
             <div className=" w-full transform absolute -translate-y-20 flex items-center justify-center">
               <img
-                src={pabo}
+                src={logo}
                 className="z-50  shadow-xl object-cover rounded-full align-bottom border-none h-[150px] w-[150px]  min-h-[150px]  min-w-[150px]"
                 alt="rousse"
               />
@@ -34,21 +33,17 @@ function Profile({ handleCurrentId }) {
           </div>
           <div className="text-center mt-2">
             <h3 className="text-2xl text-slate-600 dark:text-gray-200 font-bold leading-normal mb-1">
-              Paul Ochon
+              Firtname Lastname
             </h3>
-            <div className="text-xs mt-0 mb-2 text-slate-40 text-slate-600 dark:text-gray-200 font-bold uppercase">
-              <i className="fas fa-map-marker-alt mr-2 opacity-75" />
-              Limoges, France?
-            </div>
           </div>
           <div className="mt-6 py-6 border-t border-slate-300 text-center">
             <div className="flex flex-wrap justify-center">
               <div className="w-full px-4">
                 <p className="font-light leading-relaxed text-slate-600 dark:text-gray-200 mb-4">
-                  My music? A mix of Cauet and Patrick Sébastien.. I am a
-                  fantastic artist, I delight the world with my talent! When I
-                  wink, the media go wild, when I walk down the street, people
-                  faint.. Now that's charisma!
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Suscipit consequuntur, natus nobis voluptate voluptatum
+                  dolorum tenetur veniam fugit, aliquam quo inventore, corrupti
+                  magni! Amet architecto illum ipsum in rem? Maiores.
                 </p>
               </div>
             </div>
@@ -63,7 +58,3 @@ function Profile({ handleCurrentId }) {
 }
 
 export default Profile;
-
-Profile.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

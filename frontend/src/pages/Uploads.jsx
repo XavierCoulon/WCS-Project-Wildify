@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Upload from "../components/Upload";
 
 function Uploads({ handleCurrentId }) {
@@ -11,7 +10,3 @@ function Uploads({ handleCurrentId }) {
 }
 
 export default Uploads;
-
-Uploads.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

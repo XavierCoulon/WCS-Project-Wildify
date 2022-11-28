@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import TrackList from "../TrackList";
@@ -49,7 +48,10 @@ function PlaylistsList({ handleCurrentId }) {
       </div>
       <div className="grid grid-cols-custom m-2">
         {list.map((playlist) => (
-          <div className="flex justify-center items-center lg:h-28 md:h-16 h-7 rounded-md my-1 text-white text-center p-1 m-1 bg-grayCustom opacity-90 hover:border hover:border-red-400 hover:text-red-400 dark:hover:border dark:hover:text-yellowCustom dark:hover:border-yellowCustom ">
+          <div
+            key={playlist.id}
+            className="flex justify-center items-center lg:h-28 md:h-16 h-7 rounded-md my-1 text-white text-center p-1 m-1 bg-grayCustom opacity-90 hover:border hover:border-red-400 hover:text-red-400 dark:hover:border dark:hover:text-yellowCustom dark:hover:border-yellowCustom "
+          >
             <span
               className="cursor-pointer w-48"
               aria-hidden="true"
@@ -84,7 +86,3 @@ function PlaylistsList({ handleCurrentId }) {
 }
 
 export default PlaylistsList;
-
-PlaylistsList.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

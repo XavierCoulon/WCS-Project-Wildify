@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import PlaylistsList from "../components/PlaylistsList";
 
 function Playlists({ handleCurrentId }) {
@@ -11,7 +10,3 @@ function Playlists({ handleCurrentId }) {
 }
 
 export default Playlists;
-
-Playlists.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

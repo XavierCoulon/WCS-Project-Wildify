@@ -1,7 +1,6 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
@@ -39,7 +38,3 @@ const ProfileIcon = (props) => {
 };
 
 export default ProfileIcon;
-
-ProfileIcon.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-};

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 import storage from "../utils/localStorageTools";
 import usePlayerContext from "../Context/PlayerContext";
@@ -181,9 +180,5 @@ function Player({ currentId }) {
     </div>
   );
 }
-
-Player.propTypes = {
-  currentId: PropTypes.string.isRequired,
-};
 
 export default Player;

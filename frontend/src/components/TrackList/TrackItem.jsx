@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import RighClickMenu from "../RighClickMenu";
 import PlaySvg from "../Player/Play";
@@ -153,17 +152,3 @@ function TrackItem({
 }
 
 export default TrackItem;
-
-TrackItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
-  artist: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
-  albumId: PropTypes.string.isRequired,
-  handleCurrentId: PropTypes.func.isRequired,
-  onPlaylist: PropTypes.func.isRequired,
-  loadPlayer: PropTypes.func.isRequired,
-  onUploadPicture: PropTypes.func.isRequired,
-  reloadTrackList: PropTypes.func.isRequired,
-};

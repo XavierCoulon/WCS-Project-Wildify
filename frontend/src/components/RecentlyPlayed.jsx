@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { songsFetcher } from "../utils/axiosTools";
 import storage from "../utils/localStorageTools";
 import TrackList from "./TrackList";
@@ -32,7 +31,3 @@ function RecentlyPlayed({ handleCurrentId }) {
   );
 }
 export default RecentlyPlayed;
-
-RecentlyPlayed.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

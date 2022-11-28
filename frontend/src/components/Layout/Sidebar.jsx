@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 import { useContext } from "react";
 import FavouriteIcon from "../SVG/Favourite";
 import HomeIcon from "../SVG/HomeIcon";
@@ -54,7 +53,7 @@ export default function Sidebar({ setIsMenu }) {
           className="border-b w-full border-gray-400  pt-4 pb-3"
         >
           <CustomNavLink name="Home" path="/">
-            <HomeIcon currentPage="/" />
+            <HomeIcon currentpage="/" />
           </CustomNavLink>
         </li>
         <li
@@ -62,7 +61,7 @@ export default function Sidebar({ setIsMenu }) {
           className="border-b w-full py-3 border-gray-400"
         >
           <CustomNavLink name="Genres" path="/genres">
-            <GenreIcon currentPage="/genres" />
+            <GenreIcon currentpage="/genres" />
           </CustomNavLink>
         </li>
         <li
@@ -70,7 +69,7 @@ export default function Sidebar({ setIsMenu }) {
           className="border-b w-full border-gray-400 py-3"
         >
           <CustomNavLink name="Favourites" path="/favourites">
-            <FavouriteIcon currentPage="/favourites" />
+            <FavouriteIcon currentpage="/favourites" />
           </CustomNavLink>
         </li>
         <li
@@ -78,7 +77,7 @@ export default function Sidebar({ setIsMenu }) {
           className="border-b w-full border-gray-400 py-3"
         >
           <CustomNavLink name="Playlists" path="/playlists">
-            <PlaylistsIcon currentPage="/playlists" />
+            <PlaylistsIcon currentpage="/playlists" />
           </CustomNavLink>
         </li>
         <li
@@ -86,23 +85,15 @@ export default function Sidebar({ setIsMenu }) {
           className="border-b w-full border-gray-400 py-3"
         >
           <CustomNavLink name="Uploads" path="/uploads">
-            <UploadsIcon currentPage="/uploads" />
+            <UploadsIcon currentpage="/uploads" />
           </CustomNavLink>
         </li>
         <li onClick={handleClick} className=" w-full  pt-3 pb-60">
           <CustomNavLink name="Profile" path="/profile">
-            <ProfileIcon currentPage="/profile" />
+            <ProfileIcon currentpage="/profile" />
           </CustomNavLink>
         </li>
       </ul>
     </div>
   );
 }
-CustomNavLink.propTypes = {
-  path: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
-};
-Sidebar.propTypes = {
-  setIsMenu: PropTypes.func.isRequired,
-};

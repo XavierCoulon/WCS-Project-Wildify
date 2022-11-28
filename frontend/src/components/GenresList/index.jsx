@@ -46,6 +46,7 @@ function GenresList({ handleCurrentId }) {
       <div className="m-2 grid grid-cols-custom gap-2 justify-items-center">
         {genresList.map((genre, index) => (
           <div
+            key={genre.id}
             aria-hidden="true"
             onClick={() => {
               setCurrentGenre(genre.name);

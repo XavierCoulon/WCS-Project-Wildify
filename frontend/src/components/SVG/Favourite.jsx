@@ -1,7 +1,6 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-props-no-spreading */
 import { useContext } from "react";
-import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { ThemeContext } from "../../Context/ThemeContext";
 
@@ -38,9 +37,3 @@ const FavouriteIcon = (props) => {
 };
 
 export default FavouriteIcon;
-
-FavouriteIcon.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
-};

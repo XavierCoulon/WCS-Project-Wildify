@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import { ThemeContext } from "../../Context/ThemeContext";
 
 function Navbar({ setIsMenu, isMenu }) {
@@ -45,8 +44,5 @@ function Navbar({ setIsMenu, isMenu }) {
     </div>
   );
 }
-Navbar.propTypes = {
-  setIsMenu: PropTypes.func.isRequired,
-  isMenu: PropTypes.bool.isRequired,
-};
+
 export default Navbar;

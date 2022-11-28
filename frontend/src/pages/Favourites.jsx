@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import favImg from "../assets/Lead-image.png";
 import favBg from "../assets/Favorite_bg.png";
@@ -60,7 +59,3 @@ function Favourites({ handleCurrentId }) {
   );
 }
 export default Favourites;
-
-Favourites.propTypes = {
-  handleCurrentId: PropTypes.func.isRequired,
-};

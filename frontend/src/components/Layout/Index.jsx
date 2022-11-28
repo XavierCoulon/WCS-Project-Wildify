@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import PropTypes from "prop-types";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Player from "../Player";
@@ -37,8 +36,3 @@ function Layout({ tracksPlayer, currentId }) {
 }
 
 export default Layout;
-
-Layout.propTypes = {
-  tracksPlayer: PropTypes.arrayOf.isRequired,
-  currentId: PropTypes.string.isRequired,
-};
