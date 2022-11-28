@@ -6,10 +6,17 @@ import storage from "../utils/localStorageTools";
 import FavouritesList from "../components/FavouritesList";
 
 function Favourites({ handleCurrentId }) {
-  const [favourites, setFavourites] = useState(() => storage.get("favorite"));
+  const [favourites, setFavourites] = useState([]);
+
+  const callBack = () => {
+    if (storage.get("favorite")) setFavourites(() => storage.get("favorite"));
+  };
+
   useEffect(() => {
-    setFavourites(storage.get("favorite"));
-  }, [favourites]);
+    window.addEventListener("storage", callBack);
+    return () => window.removeEventListener("storage", callBack);
+  });
+
   return (
     <div className="bg-pinkCustom dark:bg-blackCustom w-full h-screen text-black dark:text-white">
       <div className="flex relative lg:h-3/6 h-1/5 overflow-hidden">
@@ -40,7 +47,8 @@ function Favourites({ handleCurrentId }) {
                 src="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"
                 alt="coeur"
               />
-              {favourites.length} favourites songs
+              {favourites ? storage.get("favorite").length : 0} favourite(s)
+              songs
             </p>
           </div>
         </div>

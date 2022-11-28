@@ -13,7 +13,7 @@ function FavouritesList({ handleCurrentId }) {
   }, []);
 
   const callBack = () => {
-    setFavourites(() => storage.get("favorite"));
+    if (storage.get("favorite")) setFavourites(() => storage.get("favorite"));
   };
 
   useEffect(() => {
