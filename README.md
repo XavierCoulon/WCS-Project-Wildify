@@ -1,3 +1,17 @@
+# Project Wildify
+
+🎯 **Goal**: 2nd project during Wild Code School course, a music app dedicated to artists:
+- fisrt project using React & Tailwind,
+- use of API developped by [Julien](https://github.com/JIdayyy), Wild Code School JS trainer (CRUD),
+- team:
+  - [Laetitia Decandt](https://github.com/Laeti64),
+  - [Tony Creavin](https://github.com/TonyCreavin),
+  - [Lucas Toulet](https://github.com/LucasTool).
+
+
+![Alt text](frontend/src/assets/screenshot_app.png)
+
+
 ## Concept
 
 This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
