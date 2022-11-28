@@ -18,6 +18,7 @@ function FavouritesList({ handleCurrentId }) {
 
   useEffect(() => {
     window.addEventListener("storage", callBack);
+    // console.log("loop");
 
     return () => window.removeEventListener("storage", callBack);
   });
