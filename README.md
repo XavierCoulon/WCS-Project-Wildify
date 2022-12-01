@@ -3,6 +3,7 @@
 🎯 **Goal**: 2nd project during Wild Code School course, a music app dedicated to artists:
 - fisrt project using React & Tailwind,
 - use of API developped by [Julien](https://github.com/JIdayyy), Wild Code School JS trainer (CRUD),
+- creation of a Postman workplace to test endpoints,
 - team:
   - [Laetitia Decandt](https://github.com/Laeti64),
   - [Tony Creavin](https://github.com/TonyCreavin),
@@ -10,6 +11,8 @@
 
 
 ![Alt text](frontend/src/assets/screenshot_app.png)
+![Alt text](frontend/src/assets/postman.png)
+
 
 
 ## Concept
